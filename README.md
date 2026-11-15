@@ -25,6 +25,10 @@ All jobs live in `data/jobs.json`. Each job has:
 - `source` - `Naukri` or `LinkedIn`
 - `sourceJobId` - the job id on the source site
 - `verifiedDate` - ISO date the listing was last verified live
+- `description` (optional) - plain text from the verified posting. Use `\n` for paragraph breaks in JSON.
+- `keywords` (optional) - an array of exact role-related terms from the original posting, e.g. `["Python", "FastAPI"]`.
+
+Muse can add these fields to its existing payload. **View Details** shows the description and a link to the source. **Keywords** uses supplied terms first, then recognized terms in the description, then the role title and category. Omit unavailable fields or set them to `null`; never invent a description or a skill.
 
 To update the board, edit `data/jobs.json` and redeploy. Jobs older than 7 days by `postedDate` are hidden automatically, so old entries drop off on their own. The page also revalidates once an hour, so the 7-day cutoff and posted labels stay fresh between deploys.
 

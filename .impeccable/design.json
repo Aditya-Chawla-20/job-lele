@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 2,
+  "title": "Job Lele",
+  "extensions": {
+    "typographyMeta": {
+      "body": {
+        "displayName": "Parkinsans"
+      }
+    },
+    "colorMeta": {
+      "dark-canvas": {
+        "role": "neutral",
+        "displayName": "Dark Canvas",
+        "canonical": "#0a0a0a"
+      },
+      "dark-surface": {
+        "role": "neutral",
+        "displayName": "Dark Surface",
+        "canonical": "#171717"
+      },
+      "dark-control": {
+        "role": "neutral",
+        "displayName": "Dark Control",
+        "canonical": "#272727"
+      },
+      "dark-ink": {
+        "role": "neutral",
+        "displayName": "Dark Ink",
+        "canonical": "#fafafa"
+      },
+      "dark-muted": {
+        "role": "neutral",
+        "displayName": "Dark Muted",
+        "canonical": "#b6b6b6"
+      },
+      "light-canvas": {
+        "role": "neutral",
+        "displayName": "Light Canvas",
+        "canonical": "#f8f8f8"
+      },
+      "light-surface": {
+        "role": "neutral",
+        "displayName": "Light Surface",
+        "canonical": "#fff"
+      },
+      "light-control": {
+        "role": "neutral",
+        "displayName": "Light Control",
+        "canonical": "#efefef"
+      },
+      "light-ink": {
+        "role": "neutral",
+        "displayName": "Light Ink",
+        "canonical": "#171717"
+      },
+      "light-muted": {
+        "role": "neutral",
+        "displayName": "Light Muted",
+        "canonical": "#595959"
+      }
+    }
+  }
+}

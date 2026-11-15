@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { flushSync } from "react-dom";
 
 const STORAGE_KEY = "job-lele-theme";
 
@@ -13,13 +14,22 @@ export default function ThemeToggle() {
   }, []);
 
   function toggle() {
-    const next = theme === "dark" ? "light" : "dark";
-    setTheme(next);
-    document.documentElement.setAttribute("data-theme", next);
-    try {
-      localStorage.setItem(STORAGE_KEY, next);
-    } catch {
-      // Private mode or blocked storage: the toggle still works for this visit.
+    function applyTheme() {
+      const root = document.documentElement;
+      const next = root.dataset.theme === "dark" ? "light" : "dark";
+      root.dataset.theme = next;
+      setTheme(next);
+      try {
+        localStorage.setItem(STORAGE_KEY, next);
+      } catch {
+        // The theme still applies when storage is unavailable.
+      }
+    }
+
+    if (document.startViewTransition && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      document.startViewTransition(() => flushSync(applyTheme));
+    } else {
+      applyTheme();
     }
   }
 
@@ -29,7 +39,7 @@ export default function ThemeToggle() {
       className="theme-toggle"
       onClick={toggle}
       aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
-      title={theme === "dark" ? "Light mode" : "Night mode"}
+      title={theme === "dark" ? "Light mode" : "Dark mode"}
     >
       <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         {theme === "dark" ? (

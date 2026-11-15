@@ -1,15 +1,11 @@
 # Job board
 
-Mode: operate. Visitors scan and filter current openings, then apply on the source site. The secondary action is to read the official GuptAI guide.
+Visitors scan and filter current openings, read the details, and apply on the source site. The two header controls switch theme and open the owner's X profile.
 
 ## Direction contract
 
-**World:** A monochrome listings index. Use pure black and white for surfaces, text and actions, reversing ink and paper in dark mode. Use thin neutral rules for grouping.
+Use the portfolio’s dotted canvas, Parkinsans typography, and circular theme reveal from the top right. Use filled, unoutlined cards with neutral surfaces. Light mode uses white cards and a subtle shadow.
 
-**First viewport:** Keep search and the first live listings visible. Place the GuptAI guide in a visually separate panel alongside the job list on desktop. Keep the two-column composition from the 12ui pass, with simpler list rows and no decorative artwork.
+Keep the reference layout for job cards with company, posting facts, category, the description preview when available, and separate Details, Keywords, and Apply actions. Use a centered, scrollable dialog for the details and keywords. If the feed lacks a description, link to the original listing. Identify where keyword terms came from.
 
-**Path:** A visitor can jump to the featured product, but the default browsing path runs from filters directly into jobs. Narrow screens give the board the full width and keep the featured panel reachable from the header.
-
-**Interaction:** The promo explains how the meeting assistant can help with interview practice and leads to the official guide. A visitor can reveal and copy the actual macOS or Windows installation command. The visual mock does not define keyboard shortcuts, product claims, or job data.
-
-**Risk:** Use contrast and spacing so monochrome controls remain distinct and the GuptAI panel does not compete with the listings.
+Show the GuptAI feature to the right on desktop and below the feed on narrow screens. Installation commands start expanded.

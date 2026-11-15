@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import JobDialog from "./JobDialog";
 import { track } from "@vercel/analytics";
 import {
   CATEGORIES,
@@ -16,6 +17,11 @@ export default function JobBoard({ jobs }: { jobs: JobView[] }) {
   const [recency, setRecency] = useState("all");
   const [location, setLocation] = useState("All");
   const [experience, setExperience] = useState("All");
+  const [selection, setSelection] = useState<{
+    job: JobView;
+    view: "details" | "keywords";
+    trigger: HTMLButtonElement;
+  } | null>(null);
 
   const filtered = useMemo(() => {
     const text = query.trim().toLowerCase();
@@ -72,7 +78,7 @@ export default function JobBoard({ jobs }: { jobs: JobView[] }) {
             <button
               type="button"
               aria-pressed={category === "All"}
-              className={category === "All" ? "pill active" : "pill"}
+              className="pill"
               onClick={() => setCategory("All")}
             >
               All
@@ -82,7 +88,7 @@ export default function JobBoard({ jobs }: { jobs: JobView[] }) {
                 key={value}
                 type="button"
                 aria-pressed={category === value}
-                className={category === value ? "pill active" : "pill"}
+                className="pill"
                 onClick={() => setCategory(value)}
               >
                 {value}
@@ -147,29 +153,57 @@ export default function JobBoard({ jobs }: { jobs: JobView[] }) {
         <ul className="job-list">
           {filtered.map((job) => (
             <li key={job.id} className="job-card">
-              <div className="job-head">
-                <h2 className="job-title">{job.title}</h2>
-                <span className="posted">{job.postedLabel}</span>
-              </div>
+              <h2 className="job-title">{job.title}</h2>
               <p className="job-company">{job.company}</p>
-              <p className="job-meta">
-                {job.location} &middot; {job.experience} &middot; {job.category}
-              </p>
-              {job.salary && <p className="job-salary">{job.salary}</p>}
-              <a
-                className="apply-btn"
-                href={job.applyUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() =>
-                  track("job_apply_click", { job: job.title, company: job.company })
-                }
-              >
-                Apply on {job.source}
-              </a>
+              <ul className="job-meta job-facts" aria-label="Job information">
+                <li>{job.location}</li>
+                <li>{job.experience}</li>
+                <li><time dateTime={job.postedDate}>{job.postedLabel}</time></li>
+                {job.salary && <li>{job.salary}</li>}
+              </ul>
+              <span className="job-category">{job.category}</span>
+              {job.description?.trim() && <p className="job-preview">{job.description.trim()}</p>}
+              <div className="job-actions">
+                <button
+                  type="button"
+                  className="button"
+                  aria-haspopup="dialog"
+                  onClick={(event) => setSelection({ job, view: "details", trigger: event.currentTarget })}
+                >
+                  View Details
+                </button>
+                <button
+                  type="button"
+                  className="button"
+                  aria-haspopup="dialog"
+                  onClick={(event) => setSelection({ job, view: "keywords", trigger: event.currentTarget })}
+                >
+                  Keywords
+                </button>
+                <a
+                  className="button button-primary"
+                  href={job.applyUrl}
+                  aria-label={`Apply on ${job.source}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => track("job_apply_click", { job: job.title, company: job.company })}
+                >
+                  Apply
+                </a>
+              </div>
             </li>
           ))}
         </ul>
+      )}
+      {selection && (
+        <JobDialog
+          job={selection.job}
+          view={selection.view}
+          onClose={() => {
+            setSelection(null);
+            selection.trigger.focus();
+          }}
+        />
       )}
     </div>
   );

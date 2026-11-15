@@ -12,7 +12,7 @@ Freshers and early career developers looking for AI/ML, full stack, software, an
 
 ## Product Purpose
 
-Help applicants find recent roles, narrow the list, and apply on the original job site. Introduce GuptAI, a real-time meeting assistant that visitors can also use to practice for interviews.
+Help applicants find recent roles, narrow the list, and apply on the original job site. Introduce GuptAI as a real-time interview assistant.
 
 ## Operating Context
 
@@ -20,4 +20,4 @@ Muse updates the job feed in `data/jobs.json`. The Next.js board reads that file
 
 ## Capabilities and Constraints
 
-Preserve title and company search, category, recency, location, and experience filters. Keep original application links and click analytics. Show salaries only where present in the source data. Keep light and dark themes. The GuptAI feature links to the official guide and offers optional macOS and Windows installation commands.
+Preserve title and company search, category, recency, location, and experience filters. Keep original application links and click analytics. Show salaries only where present in the source data. Keep light and dark themes. Show source descriptions and ATS keywords when the feed provides them. The GuptAI feature links to its homepage and shows macOS and Windows install commands.

@@ -11,6 +11,8 @@ export type Job = {
   source: "Naukri" | "LinkedIn";
   sourceJobId: string;
   verifiedDate: string; // ISO date the listing was last verified live
+  description?: string | null;
+  keywords?: string[] | null;
 };
 
 // A job plus the display values computed from its dates at render time.
@@ -102,4 +104,50 @@ export function toJobView(job: Job, now: Date): JobView {
     locationBucket: locationBucket(job.location),
     experienceBucket: experienceBucket(job.experience),
   };
+}
+
+
+const atsTerms = [
+  "Machine Learning", "Deep Learning", "Generative AI", "Computer Vision",
+  "Natural Language Processing", "NLP", "LLM", "RAG", "AI Agents", "MLOps",
+  "PyTorch", "TensorFlow", "Hugging Face", "LangChain", "LangGraph",
+  "scikit-learn", "NumPy", "pandas", "OpenCV", "Vector Search",
+  "Python", "JavaScript", "TypeScript", "Java", "Kotlin", "C++", "C#",
+  "React", "Next.js", "Node.js", "Angular", "Vue", "Django", "Flask",
+  "FastAPI", "Spring Boot", "REST APIs", "GraphQL", "Git", "CI/CD",
+  "SQL", "PostgreSQL", "MySQL", "MongoDB", "Redis", "Data Analysis",
+  "Data Engineering", "ETL", "Spark", "Power BI", "Tableau",
+  "AWS", "Azure", "GCP", "Docker", "Kubernetes", "Linux", "Terraform",
+  "Full Stack", "Frontend", "Backend", "Software Testing", "Selenium",
+].map((term) => ({
+  term,
+  pattern: new RegExp(
+    `(?:^|[^\\p{L}\\p{N}])${term.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}(?=$|[^\\p{L}\\p{N}])`,
+    "iu",
+  ),
+}));
+
+export function jobKeywords(job: Job): { terms: string[]; source: "listing" | "description" | "title" } {
+  const unique = new Map<string, string>();
+  for (const keyword of job.keywords ?? []) {
+    const cleaned = keyword.trim();
+    if (cleaned && !unique.has(cleaned.toLowerCase())) {
+      unique.set(cleaned.toLowerCase(), cleaned);
+    }
+  }
+  if (unique.size > 0) return { terms: [...unique.values()], source: "listing" };
+
+  const description = job.description?.trim();
+  if (description) {
+    const terms = atsTerms
+      .filter(({ pattern }) => pattern.test(description))
+      .slice(0, 12)
+      .map(({ term }) => term);
+    if (terms.length > 0) return { terms, source: "description" };
+  }
+
+  const terms = job.category === "Other" || job.title.toLowerCase() === job.category.toLowerCase()
+    ? [job.title]
+    : [job.title, job.category];
+  return { terms, source: "title" };
 }

@@ -35,18 +35,18 @@ export default function GuptAIInstall() {
           GuptAI
         </a>
       </h2>
-      <p className="guptai-headline">Your next interview starts with practice.</p>
+      <p className="guptai-headline">Real Time Interview Assistant</p>
       <p className="guptai-desc">
-        Use GuptAI for live transcription and AI help on calls. Try it in a mock interview to practice answering questions out loud.
+        Invisible on screen share, Live Answers of the Questions Asked
       </p>
-      <a className="guide-btn" href="https://guptai.vercel.app/docs" target="_blank" rel="noopener noreferrer">
-        Read the install guide
+      <a className="button button-primary guide-btn" href="https://guptai.vercel.app" target="_blank" rel="noopener noreferrer">
+        See how Gupt-AI works
         <svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
           <path d="M5 15 15 5M7 5h8v8" />
         </svg>
       </a>
 
-      <details className="quick-commands">
+      <details className="quick-commands" open>
         <summary>Install commands</summary>
         <div className="install-tabs" role="group" aria-label="Operating system">
           <button type="button" aria-pressed={os === "mac"} className="install-tab" onClick={() => selectOs("mac")}>
@@ -61,15 +61,14 @@ export default function GuptAIInstall() {
         </p>
         <div className="install-box">
           <pre className="install-code"><code>{command}</code></pre>
-          <button type="button" className="copy-btn" onClick={copy}>
+          <button type="button" className="button copy-btn" onClick={copy}>
             {copyStatus === "copied" ? "Copied" : "Copy command"}
           </button>
         </div>
-        <span className={copyStatus === "error" ? "install-note copy-error" : "visually-hidden"} role="status">
+        <p className={copyStatus === "error" ? "install-note" : "visually-hidden"} role="status">
           {copyStatus === "error" ? "Clipboard unavailable. Select and copy the command above." : copyStatus === "copied" ? "Command copied to your clipboard." : ""}
-        </span>
+        </p>
       </details>
-
     </aside>
   );
 }

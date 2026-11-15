@@ -20,36 +20,22 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body>
         <header className="site-header">
-          <div className="container">
-            <div className="header-row">
-              <div>
-                <h1 className="site-name">
-                  <svg className="site-mark" viewBox="0 0 32 32" aria-hidden="true">
-                    <path d="M8 23 23 8m-11 0h11v11" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                  Job Lele
-                </h1>
-                <p className="site-tagline">
-                  Fresh AI, full stack, software, and data jobs in India, for freshers and
-                  early career developers.
-                </p>
-              </div>
-              <div className="header-actions">
-                <a className="feature-link" href="#guptai">GuptAI</a>
-                <ThemeToggle />
-                <a
-                  className="x-link"
-                  href="https://x.com/Aditya_Chawla20"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  @Aditya_Chawla20 on X
-                </a>
-              </div>
-            </div>
+          <div className="container header-actions">
+            <ThemeToggle />
+            <a
+              className="x-link"
+              href="https://x.com/Aditya_Chawla20"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              @Aditya_Chawla20
+            </a>
           </div>
         </header>
-        <main className="container">{children}</main>
+        <main className="container">
+          <h1 className="visually-hidden">Job Lele</h1>
+          {children}
+        </main>
         <footer className="site-footer">
           <div className="container">
             <p>
