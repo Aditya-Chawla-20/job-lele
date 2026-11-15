@@ -1,0 +1,76 @@
+name: Enrich Job Lele listings
+
+on:
+  push:
+    branches: [main]
+    paths: [data/jobs.json]
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: Preview enrichment without publishing it
+        type: boolean
+        default: true
+
+concurrency:
+  group: job-lele-enrichment
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  enrich:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: main
+
+      - name: Read current enrichment branch
+        shell: bash
+        run: |
+          if git ls-remote --exit-code origin refs/heads/job-enrichment >/dev/null; then
+            git fetch --depth=1 origin refs/heads/job-enrichment
+            git show FETCH_HEAD:enrichments.json > "$RUNNER_TEMP/enrichments-before.json"
+            printf 'ENRICHMENT_PARENT=%s\n' "$(git rev-parse FETCH_HEAD)" >> "$GITHUB_ENV"
+          elif [[ "$?" == 2 ]]; then
+            printf '{}\n' > "$RUNNER_TEMP/enrichments-before.json"
+          else
+            exit 1
+          fi
+
+      - name: Fetch verified descriptions and extract keywords
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
+        run: |
+          python3 scripts/enrich_jobs.py \
+            --jobs data/jobs.json \
+            --store "$RUNNER_TEMP/enrichments-before.json" \
+            --output "$RUNNER_TEMP/enrichments.json"
+
+      - name: Publish completed enrichment
+        if: github.event_name == 'push' || !inputs.dry_run
+        shell: bash
+        run: |
+          if cmp -s "$RUNNER_TEMP/enrichments-before.json" "$RUNNER_TEMP/enrichments.json"; then
+            echo "No enrichment changes to publish."
+            exit 0
+          fi
+
+          export GIT_INDEX_FILE="$RUNNER_TEMP/job-enrichment-index"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          blob=$(git hash-object -w "$RUNNER_TEMP/enrichments.json")
+          git update-index --add --cacheinfo "100644,$blob,enrichments.json"
+          config=$(git hash-object -w vercel.json)
+          git update-index --add --cacheinfo "100644,$config,vercel.json"
+          tree=$(git write-tree)
+          parent=()
+          if [[ -n "$ENRICHMENT_PARENT" ]]; then
+            parent=(-p "$ENRICHMENT_PARENT")
+          fi
+          commit=$(git commit-tree "$tree" "${parent[@]}" -m "Update job descriptions and keywords")
+          git push origin "$commit:refs/heads/job-enrichment"

@@ -18,6 +18,9 @@ const keywordSource = {
 export default function JobDialog({ job, view, onClose }: Props) {
   const dialog = useRef<HTMLDialogElement>(null);
   const description = job.description?.trim();
+  const descriptionSource = job.descriptionSourceUrl?.startsWith("https://")
+    ? job.descriptionSourceUrl
+    : undefined;
   const keywords = view === "keywords" ? jobKeywords(job) : null;
 
   useEffect(() => {
@@ -61,7 +64,16 @@ export default function JobDialog({ job, view, onClose }: Props) {
             <>
               <h3>Job description</h3>
               {description ? (
-                <p className="description-text">{description}</p>
+                <>
+                  <p className="description-text">{description}</p>
+                  {descriptionSource && (
+                    <p className="dialog-note">
+                      <a href={descriptionSource} target="_blank" rel="noopener noreferrer">
+                        Read the employer’s job posting
+                      </a>
+                    </p>
+                  )}
+                </>
               ) : (
                 <p className="dialog-note">Open the original job listing for the full description.</p>
               )}

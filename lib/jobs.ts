@@ -12,6 +12,7 @@ export type Job = {
   sourceJobId: string;
   verifiedDate: string; // ISO date the listing was last verified live
   description?: string | null;
+  descriptionSourceUrl?: string | null;
   keywords?: string[] | null;
 };
 
