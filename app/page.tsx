@@ -15,9 +15,9 @@ export default function Home() {
     .sort((a, b) => (a.postedDate < b.postedDate ? 1 : a.postedDate > b.postedDate ? -1 : 0));
 
   return (
-    <>
+    <div className="board-layout">
       <JobBoard jobs={jobs} />
       <GuptAIInstall />
-    </>
+    </div>
   );
 }

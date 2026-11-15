@@ -10,11 +10,11 @@ export const metadata: Metadata = {
 };
 
 // Runs before first paint so the saved theme applies with no flash.
-const THEME_SCRIPT = `(function(){try{var t=localStorage.getItem('job-lele-theme');if(t){document.documentElement.setAttribute('data-theme',t)}else if(window.matchMedia('(prefers-color-scheme: dark)').matches){document.documentElement.setAttribute('data-theme','dark')}}catch(e){}})();`;
+const THEME_SCRIPT = `(function(){try{var t;try{t=localStorage.getItem('job-lele-theme')}catch(e){}if(t!=='light'&&t!=='dark')t=matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';document.documentElement.setAttribute('data-theme',t)}catch(e){}})();`;
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" data-theme="dark" suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: THEME_SCRIPT }} />
       </head>
@@ -23,13 +23,19 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <div className="container">
             <div className="header-row">
               <div>
-                <p className="site-name">Job Lele</p>
+                <h1 className="site-name">
+                  <svg className="site-mark" viewBox="0 0 32 32" aria-hidden="true">
+                    <path d="M8 23 23 8m-11 0h11v11" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                  Job Lele
+                </h1>
                 <p className="site-tagline">
                   Fresh AI, full stack, software, and data jobs in India, for freshers and
                   early career developers.
                 </p>
               </div>
               <div className="header-actions">
+                <a className="feature-link" href="#guptai">GuptAI</a>
                 <ThemeToggle />
                 <a
                   className="x-link"

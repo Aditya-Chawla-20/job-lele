@@ -46,45 +46,32 @@ export default function JobBoard({ jobs }: { jobs: JobView[] }) {
   }
 
   return (
-    <div>
+    <div className="jobs-column">
       <section className="filters" aria-label="Filter jobs">
-        <input
-          className="search"
-          type="search"
-          placeholder="Search by role or company"
-          value={query}
-          onChange={(event) => setQuery(event.target.value)}
-          aria-label="Search jobs by role or company"
-        />
-
-        <div className="filter-group">
-          <span className="filter-label">Posted</span>
-          <div className="pills">
-            <button
-              type="button"
-              className={recency === "all" ? "pill active" : "pill"}
-              onClick={() => setRecency("all")}
-            >
-              All
-            </button>
-            {RECENCY_OPTIONS.map((option) => (
-              <button
-                key={option.value}
-                type="button"
-                className={recency === option.value ? "pill active" : "pill"}
-                onClick={() => setRecency(option.value)}
-              >
-                {option.label}
-              </button>
-            ))}
+        <div className="search-field">
+          <label className="filter-label" htmlFor="job-search">Search jobs</label>
+          <div className="search-control">
+            <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" aria-hidden="true">
+              <circle cx="10.5" cy="10.5" r="6.5" />
+              <path d="m16 16 4 4" />
+            </svg>
+            <input
+              id="job-search"
+              className="search"
+              type="search"
+              placeholder="Search by role or company"
+              value={query}
+              onChange={(event) => setQuery(event.target.value)}
+            />
           </div>
         </div>
 
         <div className="filter-group">
-          <span className="filter-label">Category</span>
-          <div className="pills">
+          <span className="filter-label" id="category-filter">Category</span>
+          <div className="pills" role="group" aria-labelledby="category-filter">
             <button
               type="button"
+              aria-pressed={category === "All"}
               className={category === "All" ? "pill active" : "pill"}
               onClick={() => setCategory("All")}
             >
@@ -94,6 +81,7 @@ export default function JobBoard({ jobs }: { jobs: JobView[] }) {
               <button
                 key={value}
                 type="button"
+                aria-pressed={category === value}
                 className={category === value ? "pill active" : "pill"}
                 onClick={() => setCategory(value)}
               >
@@ -104,6 +92,15 @@ export default function JobBoard({ jobs }: { jobs: JobView[] }) {
         </div>
 
         <div className="filter-row">
+          <label className="select-wrap">
+            <span className="filter-label">Posted</span>
+            <select value={recency} onChange={(event) => setRecency(event.target.value)}>
+              <option value="all">Any time</option>
+              {RECENCY_OPTIONS.map(({ value, label }) => (
+                <option key={value} value={value}>{label}</option>
+              ))}
+            </select>
+          </label>
           <label className="select-wrap">
             <span className="filter-label">Location</span>
             <select value={location} onChange={(event) => setLocation(event.target.value)}>
@@ -132,14 +129,14 @@ export default function JobBoard({ jobs }: { jobs: JobView[] }) {
         </div>
       </section>
 
-      <p className="result-count" aria-live="polite">
-        {filtered.length} {filtered.length === 1 ? "job" : "jobs"}
+      <div className="result-count">
+        <span role="status">{filtered.length} {filtered.length === 1 ? "job" : "jobs"}</span>
         {hasFilters && (
           <button type="button" className="clear-btn" onClick={clearFilters}>
             Clear filters
           </button>
         )}
-      </p>
+      </div>
 
       {filtered.length === 0 ? (
         <div className="empty">
