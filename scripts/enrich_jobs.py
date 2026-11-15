@@ -14,7 +14,7 @@ from urllib.error import HTTPError
 from urllib.parse import urljoin, urlsplit
 from urllib.request import HTTPRedirectHandler, Request, build_opener
 
-GEMINI = "gemini-3.5-flash-lite"
+GEMINI = "gemini-3.8-flash"
 NEMOTRON = "nvidia/nemotron-3.5-lightning-30b-a3b"
 ATS_DOMAINS = (
     "greenhouse.io", "lever.co", "ashbyhq.com", "myworkdayjobs.com",
@@ -211,7 +211,7 @@ def post_json(url, headers, payload):
 def gemini(key, prompt, search=False):
     payload = {
         "contents": [{"parts": [{"text": prompt}]}],
-        "generationConfig": {"maxOutputTokens": 1800, "thinkingConfig": {"thinkingLevel": "MINIMAL"}},
+        "generationConfig": {"maxOutputTokens": 1800, "thinkingConfig": {"thinkingLevel": "LOW"}},
     }
     if search:
         payload["tools"] = [{"google_search": {}}]

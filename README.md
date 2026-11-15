@@ -41,7 +41,7 @@ Rules for the data:
 
 ## Automatic job enrichment
 
-1. Add repository secrets named `GEMINI_API_KEY` and `NVIDIA_API_KEY` under [Settings → Secrets and variables → Actions](https://github.com/Aditya-Chawla-20/job-lele/settings/secrets/actions). Gemini is the primary model and discovers employer ATS postings when necessary. NVIDIA Nemotron is the fallback once source text is available.
+1. Add repository secrets named `GEMINI_API_KEY` and `NVIDIA_API_KEY` under [Settings → Secrets and variables → Actions](https://github.com/Aditya-Chawla-20/job-lele/settings/secrets/actions). Gemini 3.8 Flash (`gemini-3.8-flash`) is the primary model. Its Google Search grounding requires a paid Gemini API tier to discover employer ATS postings. NVIDIA Nemotron 3.5 Lightning (`nvidia/nemotron-3.5-lightning-30b-a3b`) is the fallback once source text is available.
 2. Open **Actions → Enrich Job Lele listings → Run workflow** on `main`. Leave **Preview enrichment without publishing it** checked to inspect a run. Uncheck it to backfill and publish current jobs. New pushes that update `data/jobs.json` publish automatically.
 3. Have Muse pull the workflow installation commit and refresh its expected `main` head before it resumes pushing.
 
