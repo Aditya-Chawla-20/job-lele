@@ -9,6 +9,17 @@
   --accent-soft: #f0fdfa;
 }
 
+[data-theme="dark"] {
+  --bg: #0f172a;
+  --card: #1e293b;
+  --text: #f1f5f9;
+  --muted: #94a3b8;
+  --border: #334155;
+  --accent: #2dd4bf;
+  --accent-dark: #5eead4;
+  --accent-soft: #134e4a;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -56,6 +67,29 @@ a {
   margin: 4px 0 0;
   color: var(--muted);
   font-size: 15px;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.theme-toggle {
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text);
+  border-radius: 999px;
+  width: 38px;
+  height: 38px;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.theme-toggle:hover {
+  border-color: var(--accent);
 }
 
 .x-link {
@@ -271,6 +305,101 @@ main {
   font-size: 13px;
 }
 
+.guptai-section {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px 16px;
+  margin-top: 28px;
+}
+
+.guptai-section h2 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.guptai-section h2 a {
+  text-decoration: none;
+}
+
+.guptai-section h2 a:hover {
+  text-decoration: underline;
+}
+
+.guptai-desc {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.install-tabs {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.install-tab {
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--muted);
+  border-radius: 999px;
+  padding: 7px 14px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.install-tab.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #ffffff;
+}
+
+.install-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-top: 12px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.install-code {
+  margin: 0;
+  flex: 1;
+  min-width: 0;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 13px;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-break: break-all;
+  color: var(--text);
+}
+
+.copy-btn {
+  flex-shrink: 0;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text);
+  border-radius: 8px;
+  padding: 7px 12px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.copy-btn:hover {
+  border-color: var(--accent);
+}
+
+.install-note {
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
 @media (min-width: 560px) {
   .header-row {
     flex-direction: row;
@@ -278,9 +407,13 @@ main {
     align-items: flex-start;
   }
 
+  .header-actions {
+    flex-shrink: 0;
+    padding-top: 4px;
+  }
+
   .x-link {
     flex-shrink: 0;
-    padding-top: 8px;
   }
 
   .filter-row {

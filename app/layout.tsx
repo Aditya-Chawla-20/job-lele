@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/react";
+import ThemeToggle from "./ThemeToggle";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -8,9 +9,15 @@ export const metadata: Metadata = {
     "Fresh AI, full stack, software, and data jobs in India for freshers and early career developers. Every job verified live before listing.",
 };
 
+// Runs before first paint so the saved theme applies with no flash.
+const THEME_SCRIPT = `(function(){try{var t=localStorage.getItem('job-lele-theme');if(t){document.documentElement.setAttribute('data-theme',t)}else if(window.matchMedia('(prefers-color-scheme: dark)').matches){document.documentElement.setAttribute('data-theme','dark')}}catch(e){}})();`;
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: THEME_SCRIPT }} />
+      </head>
       <body>
         <header className="site-header">
           <div className="container">
@@ -22,14 +29,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   early career developers.
                 </p>
               </div>
-              <a
-                className="x-link"
-                href="https://x.com/Aditya_Chawla20"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                @Aditya_Chawla20 on X
-              </a>
+              <div className="header-actions">
+                <ThemeToggle />
+                <a
+                  className="x-link"
+                  href="https://x.com/Aditya_Chawla20"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  @Aditya_Chawla20 on X
+                </a>
+              </div>
             </div>
           </div>
         </header>
