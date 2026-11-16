@@ -1,0 +1,97 @@
+{
+  "linkedin-4488288372": {
+    "description": "AI FullStack Engineer role designing and maintaining end-to-end features for an AI platform. Responsibilities include implementing responsive user interfaces, developing secure and scalable APIs, integrating data sources, and optimizing performance for complex queries. Collaborating with AI researchers, product managers, and designers to translate product requirements into robust production solutions. Full-time, on-site position based in Ahmedabad requiring collaboration with the local engineering team and participation in architecture discussions, code reviews, and iterative releases.",
+    "descriptionSourceUrl": "https://in.linkedin.com/jobs/view/ai-fullstack-engineer-at-lumibyte-ai-4488288372",
+    "fingerprint": "2fee4f114b92cc4cf0e1da89f2ff438e6287a814e21aff4d3c7d31f4e6e2f48b",
+    "keywords": [
+      "Full-Stack Development",
+      "Front-End Development",
+      "Back-End Web Development",
+      "Responsive user interfaces",
+      "Secure and scalable APIs",
+      "Architecture discussions",
+      "Code reviews",
+      "Iterative releases",
+      "Ahmedabad",
+      "AI researchers",
+      "Product managers",
+      "Designers"
+    ]
+  },
+  "linkedin-4489204109": {
+    "description": "An AI/ML Engineer position based in Noida focusing on developing and deploying proprietary AI/ML algorithms for sustainability assessment. The role involves fine-tuning large language models, integrating Generative AI solutions, and ensuring application performance and quality. Responsibilities include developing software applications and deep learning models, identifying and resolving technical issues, and maintaining code quality and automation. The position requires collaboration on integrating Generative AI solutions and maintaining code organization.",
+    "descriptionSourceUrl": "https://in.linkedin.com/jobs/view/ai-ml-engineer-at-ecoratings-4489204109",
+    "fingerprint": "4e8c94e82d88c4b92fbb44be55df0daf6314c4eaf402e6c9a30740d0f26128ae",
+    "keywords": [
+      "Python",
+      "C++",
+      "PyTorch",
+      "TensorFlow",
+      "Large Language Models",
+      "Retrieval-Augmented Generation",
+      "vector databases",
+      "Qdrant",
+      "SQL",
+      "LangChain",
+      "LangGraph",
+      "CrewAI"
+    ]
+  },
+  "linkedin-4489573179": {
+    "description": "AI-ML Engineer position at VoiceArena focused on building scalable speech AI systems. Responsibilities include designing data pipelines from raw audio to training-ready datasets, developing evaluation frameworks for Automatic Speech Recognition (ASR) and speech-to-speech systems, fine-tuning speech models like Whisper and wav2vec2, and optimizing inference pipelines. Role involves working with large-scale multilingual datasets across 20+ Indian languages, implementing multilingual and code-switched speech handling, and deploying models using cloud infrastructure and containerization tools. Required qualifications include 1-2 years hands-on AI/ML experience, proficiency in Python and PyTorch/TensorFlow/Hugging Face, familiarity with speech recognition architectures, and experience with large datasets and ML pipelines.",
+    "descriptionSourceUrl": "https://in.linkedin.com/jobs/view/ai-ml-engineer-at-voice-arena-4489573179",
+    "fingerprint": "691204b351c6e5fbf373121b43d05ea2393ab2a8f226f539b4d33fd1bfd06f19",
+    "keywords": [
+      "Python",
+      "PyTorch",
+      "TensorFlow",
+      "Hugging Face Transformers",
+      "Whisper",
+      "wav2vec2",
+      "HuBERT",
+      "ASR",
+      "Word Error Rate",
+      "ML pipelines",
+      "Data preprocessing",
+      "Cloud infrastructure"
+    ]
+  },
+  "linkedin-4490311137": {
+    "description": "Design and build agentic AI workflows and systems to automate enterprise processes. Identify manual business workflows and re-imagine them as reliable agentic solutions. Build complete end-to-end solutions including front-end, backend, and deployment, with ownership of full-stack development. Design and implement RAG pipelines to ground agents in enterprise data. Deploy and operate local/self-hosted LLMs for efficient inference at scale. Build and expose capabilities via MCP for tool and context integration. Engineer human-in-the-loop review and approval flows for high-stakes automated actions. Ensure AI systems are scalable, reliable, observable, and safe in production with guardrails, validation, retries, and cost caps. Follow solid SDLC practices including version control, code review, CI/CD, testing, and deployment.",
+    "descriptionSourceUrl": "https://in.linkedin.com/jobs/view/engineer-agentic-ai-at-tih-iit-bombay-4490311137",
+    "fingerprint": "46a0e960038f82e5894d0a1e7bb363855a9887cd08e7ee555806193c955b3e96",
+    "keywords": [
+      "LangGraph",
+      "LangChain",
+      "LlamaIndex",
+      "AutoGen",
+      "CrewAI",
+      "MCP",
+      "RAG pipelines",
+      "Self-hosted LLMs",
+      "vLLM",
+      "React",
+      "Next.js",
+      "FastAPI"
+    ]
+  },
+  "linkedin-4490587611": {
+    "description": "Junior AI Developer / Vibe Coder role focused on building applications using AI-powered coding platforms and modern web technologies. Responsibilities include developing and integrating AI features, LLMs, and third-party APIs into web applications, working with frontend and backend systems, debugging AI-assisted code, and translating requirements into functional prototypes. Position requires 1–2 years of experience, familiarity with AI coding tools, and understanding of APIs and database concepts. Remote location with full-time employment.",
+    "descriptionSourceUrl": "https://in.linkedin.com/jobs/view/junior-ai-developer-vibe-coder-at-evangelist-apps-4490587611",
+    "fingerprint": "8e01a572363815d9095b1f07a4f85d3d0b12c84c45895a1a6c2dafb8a5b4ed55",
+    "keywords": [
+      "React.js",
+      "Cursor",
+      "Lovable",
+      "Replit",
+      "Claude",
+      "API integrations",
+      "LLMs",
+      "Large Language Models",
+      "API",
+      "frontend frameworks",
+      "backend development",
+      "database concepts"
+    ]
+  }
+}
