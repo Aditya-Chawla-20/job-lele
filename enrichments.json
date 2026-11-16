@@ -1,4 +1,20 @@
 {
+  "linkedin-4484278694": {
+    "description": "Build responsive event-platform interfaces and client branding alongside senior developers and designers. The role includes troubleshooting UI issues across browsers, maintaining templates, and using HTML, CSS, and JavaScript. RainFocus accepts one to two years of experience or equivalent project work.",
+    "descriptionSourceUrl": "https://in.linkedin.com/jobs/view/jr-ui-developer-remote-at-rainfocus-4484278694",
+    "fingerprint": "947d2a291f90d02fc032553082fa034543a396ea4d3bd087a312303043814cff",
+    "keywords": [
+      "HTML",
+      "CSS",
+      "SASS",
+      "JavaScript",
+      "React",
+      "Svelte",
+      "Git",
+      "responsive design",
+      "cross-browser compatibility"
+    ]
+  },
   "linkedin-4488288372": {
     "description": "AI FullStack Engineer role designing and maintaining end-to-end features for an AI platform. Responsibilities include implementing responsive user interfaces, developing secure and scalable APIs, integrating data sources, and optimizing performance for complex queries. Collaborating with AI researchers, product managers, and designers to translate product requirements into robust production solutions. Full-time, on-site position based in Ahmedabad requiring collaboration with the local engineering team and participation in architecture discussions, code reviews, and iterative releases.",
     "descriptionSourceUrl": "https://in.linkedin.com/jobs/view/ai-fullstack-engineer-at-lumibyte-ai-4488288372",
@@ -92,6 +108,25 @@
       "multi-agent systems",
       "microservices",
       "distributed systems"
+    ]
+  },
+  "linkedin-4489528199": {
+    "description": "Develop full-stack applications with Java and Spring Boot, build APIs and microservices, and create responsive interfaces in React or Angular. The role also involves integrating AI agents to automate business workflows and collaborating on system design and code reviews.",
+    "descriptionSourceUrl": "https://in.linkedin.com/jobs/view/software-development-engineer-sde-1-remote-at-keel-4489528199",
+    "fingerprint": "68c61f4b325481bd812f09e277cf4c270c3599e38fe65dcead348f868059fa44",
+    "keywords": [
+      "Java",
+      "Spring Boot",
+      "React",
+      "Angular",
+      "Microservices",
+      "REST APIs",
+      "Agentic AI",
+      "LLMs",
+      "LangChain",
+      "LangGraph",
+      "CrewAI",
+      "AutoGen"
     ]
   },
   "linkedin-4489573179": {
@@ -260,6 +295,63 @@
       "problem-solving skills",
       "at least one language",
       "working understanding of databases"
+    ]
+  },
+  "naukri-121126504604": {
+    "description": "Work with designers and researchers on prototypes and accessible production software for Alef Education’s mobile apps. Build Java and Spring services and REST APIs, design data models, and write automated tests. The Pune role asks for one to two years of relevant experience.",
+    "descriptionSourceUrl": "https://www.alefeducation.com/careers",
+    "fingerprint": "5215817c11997d2fe0867a4a99d593fb7f04f7cf4a1fc73b93f8bbf64bf8ab90",
+    "keywords": [
+      "Java",
+      "Spring",
+      "JavaScript",
+      "Microservices",
+      "REST API",
+      "RabbitMQ",
+      "ActiveMQ",
+      "MongoDB",
+      "Git",
+      "TDD",
+      "BDD",
+      "CI/CD"
+    ]
+  },
+  "naukri-131126500612": {
+    "description": "Build and deploy AI applications across the stack. The Chandigarh team needs someone who can integrate language models, retrieval, and agent tools with web interfaces and backend services, then own data storage and production deployment on AWS.",
+    "descriptionSourceUrl": "https://careers.crossml.com/jobs/Careers/60700000006752003",
+    "fingerprint": "a1db589654d7e4b130ea871ea2b68dff222536c3f1affbf6c517eb58bdb0e578",
+    "keywords": [
+      "React",
+      "Next.js",
+      "Python",
+      "Django REST Framework",
+      "FastAPI",
+      "Node.js",
+      "PostgreSQL",
+      "Qdrant",
+      "AWS",
+      "Docker",
+      "RAG",
+      "MCP"
+    ]
+  },
+  "naukri-131126503785": {
+    "description": "Develop client-facing AI web applications and prototypes, from responsive React interfaces to Python APIs and integrations with Azure AI services. The Pune role includes client demos, code reviews, security, and running containerized applications in Azure.",
+    "descriptionSourceUrl": "https://jobs.smartrecruiters.com/TelefonicaTech/744000161273488-ai-app-developer",
+    "fingerprint": "f4e62228ef5feced0756bdd93a9e0baea0a2d3b03e59f29895b5a6394928059d",
+    "keywords": [
+      "Python",
+      "FastAPI",
+      "Flask",
+      "Django",
+      "React.js",
+      "Azure AI Search",
+      "Microsoft Foundry",
+      "MCP",
+      "MongoDB",
+      "Docker",
+      "Azure DevOps",
+      "CI/CD"
     ]
   }
 }
