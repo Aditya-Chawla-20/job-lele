@@ -297,6 +297,25 @@
       "working understanding of databases"
     ]
   },
+  "naukri-111126504506": {
+    "description": "Build production AI applications with client and product teams in Pune. The role covers architecture, deployment, and iteration, including designing agent workflows and debugging across models, retrieval, data, and infrastructure. Fresh Gravity looks for strong Python skills and experience with language models and retrieval systems.",
+    "descriptionSourceUrl": "https://orbit.freshgravity.net/apply/3157366A6E",
+    "fingerprint": "c7721d4944d6fe0f65679c36ea3dcbfdf8f02ea86db27a59b73056b1742b0af7",
+    "keywords": [
+      "Python",
+      "LLMs",
+      "RAG",
+      "embeddings",
+      "semantic search",
+      "LangGraph",
+      "LangChain",
+      "LlamaIndex",
+      "Semantic Kernel",
+      "APIs",
+      "Docker",
+      "Git"
+    ]
+  },
   "naukri-121126504604": {
     "description": "Work with designers and researchers on prototypes and accessible production software for Alef Education’s mobile apps. Build Java and Spring services and REST APIs, design data models, and write automated tests. The Pune role asks for one to two years of relevant experience.",
     "descriptionSourceUrl": "https://www.alefeducation.com/careers",
