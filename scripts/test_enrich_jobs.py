@@ -5,7 +5,7 @@ from unittest.mock import patch
 from urllib.error import HTTPError
 
 from enrich_jobs import (
-    extract_fields, fingerprint, source_description, update_jobs,
+    extract_fields, fingerprint, source_description, source_url_allowed, update_jobs,
 )
 
 
@@ -38,6 +38,14 @@ def page(posting):
     return f'<script type="application/ld+json">{json.dumps({"@graph": [posting]})}</script>'
 
 
+def linkedin_page(job_id="123"):
+    return (
+        f'<link rel="canonical" href="https://in.linkedin.com/jobs/view/example-{job_id}">'
+        '<meta property="og:title" content="Junior Software Engineer at Example Labs | LinkedIn Jobs">'
+        f'<div class="show-more-less-html__markup"><p>{TEXT}</p></div>'
+    )
+
+
 class EnrichmentTest(unittest.TestCase):
     def test_matches_open_employer_job_and_rejects_wrong_role_location_and_expired_job(self):
         self.assertEqual(source_description(page(POSTING), JOB, TODAY, True), TEXT)
@@ -65,7 +73,9 @@ class EnrichmentTest(unittest.TestCase):
     def test_enrichment_round_trip_and_idempotence(self):
         with (
             patch("enrich_jobs.discover_source", return_value=URL) as discover,
-            patch("enrich_jobs.fetch_page", return_value=(URL, page(POSTING))) as fetch,
+            patch("enrich_jobs.fetch_page", side_effect=[
+                HTTPError(JOB["applyUrl"], 403, "", {}, None), (URL, page(POSTING)),
+            ]) as fetch,
             patch("enrich_jobs.gemini", return_value=json.dumps({"description": SUMMARY, "keywords": ["Docker"]})),
         ):
             updated = update_jobs([JOB], {}, TODAY, "gemini-test", None)
@@ -76,7 +86,7 @@ class EnrichmentTest(unittest.TestCase):
             self.assertEqual(entry["descriptionSourceUrl"], URL)
             self.assertEqual(update_jobs([JOB], updated, TODAY, "gemini-test", None), updated)
             discover.assert_called_once()
-            fetch.assert_called_once()
+            self.assertEqual(fetch.call_count, 2)
         self.assertEqual(update_jobs([JOB], updated, date(2026, 11, 22), None, None), {})
         self.assertNotEqual(fingerprint(JOB), fingerprint(JOB | {"location": "Mumbai"}))
 
@@ -90,6 +100,30 @@ class EnrichmentTest(unittest.TestCase):
             self.assertEqual(entry["keywords"], ["Python"])
             self.assertNotIn("description", entry)
             fetch.assert_not_called()
+
+    def test_reads_exact_linkedin_job_before_search(self):
+        canonical = "https://in.linkedin.com/jobs/view/example-123"
+        with (
+            patch("enrich_jobs.fetch_page", return_value=(canonical, linkedin_page())) as fetch,
+            patch("enrich_jobs.discover_source") as discover,
+            patch("enrich_jobs.extract_fields", return_value=(SUMMARY, ["Python"])) as extract,
+        ):
+            entry = update_jobs([JOB], {}, TODAY, "gemini-test", "nvidia-test")[JOB["id"]]
+            self.assertEqual(entry["descriptionSourceUrl"], canonical)
+            fetch.assert_called_once_with(JOB["applyUrl"], False)
+            discover.assert_not_called()
+            extract.assert_called_once_with(TEXT, True, "gemini-test", "nvidia-test")
+
+    def test_direct_job_urls_do_not_allow_search_or_other_jobs(self):
+        self.assertTrue(source_url_allowed(JOB["applyUrl"]))
+        self.assertTrue(source_url_allowed("https://www.naukri.com/job-listings-example-123"))
+        self.assertFalse(source_url_allowed(JOB["applyUrl"], discovered=True))
+        self.assertFalse(source_url_allowed("https://www.linkedin.com/login"))
+        self.assertIsNone(source_description(linkedin_page("456"), JOB, TODAY, False, JOB["applyUrl"]))
+        self.assertIsNone(source_description(
+            linkedin_page() + page(POSTING | {"validThrough": "2026-11-13"}),
+            JOB, TODAY, False, JOB["applyUrl"],
+        ))
 
 
 if __name__ == "__main__":

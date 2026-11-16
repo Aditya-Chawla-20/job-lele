@@ -69,7 +69,7 @@ export default function JobDialog({ job, view, onClose }: Props) {
                   {descriptionSource && (
                     <p className="dialog-note">
                       <a href={descriptionSource} target="_blank" rel="noopener noreferrer">
-                        Read the employer’s job posting
+                        Read the source job posting
                       </a>
                     </p>
                   )}

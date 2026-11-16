@@ -20,7 +20,10 @@ ATS_DOMAINS = (
     "greenhouse.io", "lever.co", "ashbyhq.com", "myworkdayjobs.com",
     "smartrecruiters.com", "workable.com", "icims.com",
 )
-AGGREGATORS = ("linkedin.com", "naukri.com")
+JOB_BOARD_PATHS = {
+    "linkedin.com": re.compile(r"/jobs/view/(?:[^/]+-)?(\d+)/?"),
+    "naukri.com": re.compile(r"/job-listings-(?:[^/]+-)?(\d+)/?"),
+}
 FINGERPRINT_FIELDS = (
     "title", "company", "location", "postedDate", "applyUrl",
     "descriptionSourceUrl", "description",
@@ -47,7 +50,15 @@ def on_domain(host, domains):
     return any(host == domain or host.endswith("." + domain) for domain in domains)
 
 
-def employer_url(url, discovered=False):
+def job_board_posting(url):
+    parts = urlsplit(url)
+    for domain, pattern in JOB_BOARD_PATHS.items():
+        if on_domain(parts.hostname or "", (domain,)) and (match := pattern.fullmatch(parts.path)):
+            return domain, match[1]
+    return None
+
+
+def source_url_allowed(url, discovered=False):
     if not isinstance(url, str):
         return False
     try:
@@ -59,7 +70,7 @@ def employer_url(url, discovered=False):
             and not parts.username
             and not parts.password
             and parts.port in (None, 443)
-            and not on_domain(host, AGGREGATORS)
+            and (not on_domain(host, JOB_BOARD_PATHS) or job_board_posting(url))
             and (not discovered or on_domain(host, ATS_DOMAINS))
         )
     except ValueError:
@@ -67,9 +78,12 @@ def employer_url(url, discovered=False):
 
 
 def fetch_page(url, discovered):
+    original_posting = job_board_posting(url)
     for _ in range(4):
-        if not employer_url(url, discovered):
+        if not source_url_allowed(url, discovered):
             raise ValueError("unsupported source URL")
+        if original_posting and job_board_posting(url) != original_posting:
+            raise ValueError("redirect did not stay on the same job posting")
         host = urlsplit(url).hostname
         addresses = socket.getaddrinfo(host, 443, type=socket.SOCK_STREAM)
         if not addresses or any(not ipaddress.ip_address(a[4][0]).is_global for a in addresses):
@@ -95,18 +109,40 @@ class PostingParser(HTMLParser):
         super().__init__()
         self.scripts = []
         self.in_json = False
+        self.canonical = None
+        self.page_title = ""
+        self.description_parts = []
+        self.description_depth = 0
 
     def handle_starttag(self, tag, attrs):
-        if tag == "script" and (dict(attrs).get("type") or "").lower() == "application/ld+json":
+        attributes = dict(attrs)
+        if tag == "script" and (attributes.get("type") or "").lower() == "application/ld+json":
             self.in_json = True
+        if tag == "link" and attributes.get("rel") == "canonical":
+            self.canonical = attributes.get("href")
+        if tag == "meta" and attributes.get("property") == "og:title":
+            self.page_title = attributes.get("content") or ""
+        if tag == "div" and (
+            self.description_depth
+            or "show-more-less-html__markup" in (attributes.get("class") or "").split()
+        ):
+            self.description_depth += 1
+        if self.description_depth and tag in ("br", "li"):
+            self.description_parts.append("\n")
 
     def handle_endtag(self, tag):
         if tag == "script":
             self.in_json = False
+        if self.description_depth and tag in ("p", "li", "div"):
+            self.description_parts.append("\n")
+        if self.description_depth and tag == "div":
+            self.description_depth -= 1
 
     def handle_data(self, data):
         if self.in_json:
             self.scripts.append(data)
+        elif self.description_depth:
+            self.description_parts.append(data)
 
 
 class TextParser(HTMLParser):
@@ -155,15 +191,23 @@ def posting_nodes(value):
         yield from posting_nodes(value.get("@graph"))
 
 
-def source_description(html, job, today, discovered):
+def clean_description(parts):
+    lines = [" ".join(line.split()) for line in "".join(parts).splitlines()]
+    plain = "\n".join(line for line in lines if line)
+    return plain[:24000] if len(plain) >= 100 else None
+
+
+def source_description(html, job, today, discovered, url=None):
     parser = PostingParser()
     parser.feed(html)
+    has_posting_data = False
     for script in parser.scripts:
         try:
             nodes = json.loads(script)
         except (ValueError, RecursionError):
             continue
         for posting in posting_nodes(nodes):
+            has_posting_data = True
             organization = posting.get("hiringOrganization")
             if not isinstance(organization, dict):
                 continue
@@ -192,10 +236,20 @@ def source_description(html, job, today, discovered):
             if isinstance(description, str):
                 text = TextParser()
                 text.feed(description)
-                lines = [" ".join(line.split()) for line in "".join(text.parts).splitlines()]
-                plain = "\n".join(line for line in lines if line)
-                if len(plain) >= 100:
-                    return plain[:24000]
+                if plain := clean_description(text.parts):
+                    return plain
+
+    # LinkedIn's public job page can expose the description as HTML only.
+    if url and not has_posting_data and (posting := job_board_posting(url)):
+        expected_title = normalized(f"{job['title']} at {job['company']}")
+        if (
+            posting[0] == "linkedin.com"
+            and parser.canonical
+            and job_board_posting(parser.canonical) == posting
+            and job_board_posting(job["applyUrl"]) == posting
+            and (normalized(parser.page_title) + " ").startswith(expected_title + " ")
+        ):
+            return clean_description(parser.description_parts)
     return None
 
 
@@ -238,7 +292,29 @@ def discover_source(job, key):
         "Return only the canonical HTTPS job URL, or NONE if uncertain. Job data: " + json.dumps(identity)
     )
     url = gemini(key, prompt, search=True).strip()
-    return url if employer_url(url, discovered=True) else None
+    return url if source_url_allowed(url, discovered=True) else None
+
+
+def read_posting(job, url, today, *, discovered=False):
+    try:
+        source_url, html = fetch_page(url, discovered)
+        description = source_description(html, job, today, discovered, source_url)
+        if description:
+            return source_url, description
+        print(f"  {job['id']}: job description not found in public HTML.")
+    except (OSError, ValueError, TypeError) as exc:
+        status = f"HTTP {exc.code}" if isinstance(exc, HTTPError) else type(exc).__name__
+        print(f"  {job['id']}: public job page unavailable ({status}).")
+    return None
+
+
+def find_description(job, today, gemini_key):
+    for url in dict.fromkeys((job.get("descriptionSourceUrl"), job["applyUrl"])):
+        if url and (posting := read_posting(job, url, today)):
+            return posting
+    if gemini_key and (url := discover_source(job, gemini_key)):
+        return read_posting(job, url, today, discovered=True)
+    return None
 
 
 def extract_fields(text, summarize, gemini_key, nvidia_key):
@@ -324,17 +400,11 @@ def update_jobs(jobs, records, today, gemini_key, nvidia_key):
             source_url = None
             text = existing
             if not text:
-                supplied_url = job.get("descriptionSourceUrl")
-                discovered = not supplied_url
-                url = supplied_url or (discover_source(job, gemini_key) if gemini_key else None)
-                if not url:
-                    print(f"  {job_id}: no verified employer URL.")
+                posting = find_description(job, today, gemini_key)
+                if not posting:
+                    print(f"  {job_id}: no verified description.")
                     continue
-                source_url, html = fetch_page(url, discovered)
-                text = source_description(html, job, today, discovered)
-                if not text:
-                    print(f"  {job_id}: no matching job description at the source.")
-                    continue
+                source_url, text = posting
 
             result = extract_fields(text, not existing, gemini_key, nvidia_key)
             if result is None:
@@ -350,7 +420,7 @@ def update_jobs(jobs, records, today, gemini_key, nvidia_key):
             print(f"  {job_id}: enriched ({len(keywords)} keywords).")
         except (OSError, ValueError, TypeError, KeyError, IndexError) as exc:
             status = f"HTTP {exc.code}" if isinstance(exc, HTTPError) else type(exc).__name__
-            print(f"  {job_id}: source unavailable ({status}).")
+            print(f"  {job_id}: employer discovery unavailable ({status}).")
     return active
 
 
