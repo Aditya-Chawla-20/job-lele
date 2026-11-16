@@ -37,6 +37,25 @@
       "CrewAI"
     ]
   },
+  "linkedin-4489355654": {
+    "description": "Senior Full Stack Developer role at a US-based AI voice and enterprise software company. Responsibilities include building web applications end-to-end, designing backend architecture and APIs, constructing data pipelines and workflow automation, implementing multi-tenancy and RBAC, developing real-time dashboards and features, and integrating LLMs and external services. Duties encompass cloud deployment, CI/CD, production monitoring, and owning software performance post-launch. Position requires 1.5+ years hands-on full stack development with strong frontend, backend, API, and database fundamentals. Built and maintained live applications with real users, data modeling and query optimization on complex relational data, and cloud deployment and CI/CD experience required. Preferred skills include multi-tenant SaaS, RBAC, event-driven workflows, LLM integrations (RAG, vector databases), data pipelines, API orchestration, and real-time features like WebSockets. Role is fully remote with 50-60 hour work weeks and IST timezone availability for US client meetings.",
+    "descriptionSourceUrl": "https://in.linkedin.com/jobs/view/full-stack-developer-at-neurodrift-4489355654",
+    "fingerprint": "56cc144932e3404a53ec1ac4b24f0feca63191bff355ec71528630619772ccbf",
+    "keywords": [
+      "Full Stack Developer",
+      "Backend Architecture",
+      "Query Optimization",
+      "Cloud Deployment",
+      "CI/CD",
+      "Production Monitoring",
+      "Multi-tenancy",
+      "RBAC",
+      "Vector Databases",
+      "Data Pipelines",
+      "API Orchestration",
+      "Real-time Features"
+    ]
+  },
   "linkedin-4489368220": {
     "description": "Backend Engineer role at NeuroDrift building REST APIs, backend workflows, and data pipelines. Responsibilities include server-side business logic, API integration, debugging, and maintaining data consistency. Position requires 0-3 years backend experience, hands-on framework knowledge, database skills, and API authentication expertise. This fully remote role demands 50-60 hour work weeks with IST timezone availability for US client meetings. Immediate joiners preferred. Team emphasizes AI-native development using Claude Code and expects candidates to leverage AI tooling for faster delivery.",
     "descriptionSourceUrl": "https://in.linkedin.com/jobs/view/back-end-developer-at-neurodrift-4489368220",
