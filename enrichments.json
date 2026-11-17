@@ -167,6 +167,25 @@
       "Tech Lead"
     ]
   },
+  "linkedin-4489783477": {
+    "description": "The AI Engineer I will develop, optimize, and maintain AI-driven applications and RESTful APIs using Python and FastAPI. Responsibilities include integrating Large Language Models like OpenAI and Azure OpenAI, managing data with relational and vector databases, implementing text embeddings, and deploying scalable applications with Docker across cloud platforms such as AWS, Azure, and GCP. The position is full-time in person four days a week at the Pune office. Requirements include a Bachelor's or Master's degree in Computer Science or equivalent, 2-3 years of Python development experience focused on modular AI/LLM applications, and practical experience with vector databases, RAG, Git, and cloud services. Familiarity with Strategy data visualization tools is preferred.",
+    "descriptionSourceUrl": "https://in.linkedin.com/jobs/view/ai-engineer-i-at-strategy-4489783477",
+    "fingerprint": "df60832c4b0dd25ec07efcf93e2d3a564fbd525daac360e1901d38089e9d1d4a",
+    "keywords": [
+      "Python",
+      "RESTful APIs",
+      "FastAPI",
+      "Large Language Models (LLMs)",
+      "OpenAI",
+      "Azure OpenAI",
+      "vector databases",
+      "RAG",
+      "Docker",
+      "AWS",
+      "Azure",
+      "Git"
+    ]
+  },
   "linkedin-4489856144": {
     "description": "We are seeking a skilled Cloud & AI Engineer to design and deploy intelligent AI agents for a modern cloud-native website platform. The role involves building autonomous AI systems capable of complex reasoning, tool use, and multi-step execution on AWS. Responsibilities include developing agents for website creation, management, code generation, scheduling, lead qualification, and domain-specific assistants (e.g., real estate, salons). You will integrate AI with structured business data, design prompt strategies and orchestration logic, and build chatbots and webmaster tools. The position requires converting business requirements into practical AI-powered functionality across web, mobile, and cloud infrastructure.",
     "descriptionSourceUrl": "https://in.linkedin.com/jobs/view/ai-agent-engineer-at-kreatewebsites-4489856144",
@@ -238,6 +257,25 @@
       "NoSQL",
       "Git",
       "Cloud platforms"
+    ]
+  },
+  "linkedin-4490292643": {
+    "description": "Entry-level Associate Engineer role within Collins Aerospace's AI Enablement & Automation team. Responsibilities include developing AI-powered applications using Python, working with Large Language Models (LLMs), building prototypes, and integrating REST APIs. Tasks involve exploring AI technologies, experimenting with prompt engineering, supporting RAG-based applications, and collaborating with senior engineers. Requires strong programming fundamentals, understanding of AI/ML concepts, and familiarity with databases and version control. Offers exposure to Generative AI, Agentic AI, and the full AI application development lifecycle in a hybrid work environment.",
+    "descriptionSourceUrl": "https://in.linkedin.com/jobs/view/graduate-engineer-trainee-ai-ml-at-collins-aerospace-4490292643",
+    "fingerprint": "cba8008a77c5d114670a5bad55361891ffdbeffe032e4f845de61f03733e8ddb",
+    "keywords": [
+      "Python",
+      "Large Language Models",
+      "Generative AI",
+      "Agentic AI",
+      "Prompt Engineering",
+      "REST APIs",
+      "RAG-based applications",
+      "Databases",
+      "Git",
+      "Object-Oriented Programming",
+      "Machine Learning",
+      "LLM APIs"
     ]
   },
   "linkedin-4490311137": {
