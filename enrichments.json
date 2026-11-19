@@ -335,6 +335,23 @@
       "working understanding of databases"
     ]
   },
+  "linkedin-4491102944": {
+    "description": "A 12-month paid apprenticeship for individuals with a Bachelor's or Master's in Computer Science or IT Engineering. Responsibilities include writing code in languages like Java, JavaScript, .NET, or Python, working in agile teams on API specs and code reviews, designing customer-facing applications for web and mobile channels, and developing data collection systems. Qualifications require graduation in a technical discipline. The role offers flexible hybrid work arrangements.",
+    "descriptionSourceUrl": "https://in.linkedin.com/jobs/view/apprentice-at-american-express-4491102944",
+    "fingerprint": "93e549693821b9bd0a8e145f2e00a151d9c6eafae002060b18054243e6bc42f0",
+    "keywords": [
+      "Java",
+      "JavaScript",
+      ".NET",
+      "Python",
+      "API specs",
+      "code reviews",
+      "agile team",
+      "customer-facing applications",
+      "native iOS",
+      "Android"
+    ]
+  },
   "linkedin-4491238090": {
     "description": "Full-time remote Software Engineer position requiring design, development, and maintenance of backend services for digital solutions. Responsibilities include writing testable code, implementing APIs and integrations, collaborating with product/design teams, conducting code reviews, troubleshooting issues, optimizing performance, and contributing to architecture discussions. Role requires adherence to secure development practices for financial and insurance applications.",
     "descriptionSourceUrl": "https://in.linkedin.com/jobs/view/software-engineer-at-cascovia-4491238090",
@@ -351,6 +368,25 @@
       "FinTech",
       "InsurTech",
       "Collaborative Tools"
+    ]
+  },
+  "linkedin-4492137533": {
+    "description": "Lead development and continuous improvement of conversational AI solutions for voice and text interfaces in a remote role based in India. Design and implement end-to-end AI agent pipelines, develop and refine Natural Language Understanding models, and integrate voice SDKs and speech technologies. Collaborate with cross-functional teams to translate requirements into scalable applications, monitor production performance, and optimize model effectiveness. Mentor junior engineers and research emerging AI technologies to incorporate innovations into production solutions.",
+    "descriptionSourceUrl": "https://in.linkedin.com/jobs/view/ai-engineer-at-jobgether-4492137533",
+    "fingerprint": "21028923c06a85de3f7ca33451f2dd78919032a13ce7a1571ae5055c4cd6a41a",
+    "keywords": [
+      "AI Engineer",
+      "Conversational AI",
+      "Natural Language Understanding",
+      "Voice SDKs",
+      "Speech Technologies",
+      "Machine Learning",
+      "Model Deployment",
+      "RESTful API Integration",
+      "Python",
+      "Docker",
+      "Kubernetes",
+      "AWS"
     ]
   },
   "naukri-121126503384": {
