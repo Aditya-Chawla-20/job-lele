@@ -15,44 +15,6 @@
       "cross-browser compatibility"
     ]
   },
-  "linkedin-4488288372": {
-    "description": "AI FullStack Engineer role designing and maintaining end-to-end features for an AI platform. Responsibilities include implementing responsive user interfaces, developing secure and scalable APIs, integrating data sources, and optimizing performance for complex queries. Collaborating with AI researchers, product managers, and designers to translate product requirements into robust production solutions. Full-time, on-site position based in Ahmedabad requiring collaboration with the local engineering team and participation in architecture discussions, code reviews, and iterative releases.",
-    "descriptionSourceUrl": "https://in.linkedin.com/jobs/view/ai-fullstack-engineer-at-lumibyte-ai-4488288372",
-    "fingerprint": "2fee4f114b92cc4cf0e1da89f2ff438e6287a814e21aff4d3c7d31f4e6e2f48b",
-    "keywords": [
-      "Full-Stack Development",
-      "Front-End Development",
-      "Back-End Web Development",
-      "Responsive user interfaces",
-      "Secure and scalable APIs",
-      "Architecture discussions",
-      "Code reviews",
-      "Iterative releases",
-      "Ahmedabad",
-      "AI researchers",
-      "Product managers",
-      "Designers"
-    ]
-  },
-  "linkedin-4489204109": {
-    "description": "An AI/ML Engineer position based in Noida focusing on developing and deploying proprietary AI/ML algorithms for sustainability assessment. The role involves fine-tuning large language models, integrating Generative AI solutions, and ensuring application performance and quality. Responsibilities include developing software applications and deep learning models, identifying and resolving technical issues, and maintaining code quality and automation. The position requires collaboration on integrating Generative AI solutions and maintaining code organization.",
-    "descriptionSourceUrl": "https://in.linkedin.com/jobs/view/ai-ml-engineer-at-ecoratings-4489204109",
-    "fingerprint": "4e8c94e82d88c4b92fbb44be55df0daf6314c4eaf402e6c9a30740d0f26128ae",
-    "keywords": [
-      "Python",
-      "C++",
-      "PyTorch",
-      "TensorFlow",
-      "Large Language Models",
-      "Retrieval-Augmented Generation",
-      "vector databases",
-      "Qdrant",
-      "SQL",
-      "LangChain",
-      "LangGraph",
-      "CrewAI"
-    ]
-  },
   "linkedin-4489355654": {
     "description": "Senior Full Stack Developer role at a US-based AI voice and enterprise software company. Responsibilities include building web applications end-to-end, designing backend architecture and APIs, constructing data pipelines and workflow automation, implementing multi-tenancy and RBAC, developing real-time dashboards and features, and integrating LLMs and external services. Duties encompass cloud deployment, CI/CD, production monitoring, and owning software performance post-launch. Position requires 1.5+ years hands-on full stack development with strong frontend, backend, API, and database fundamentals. Built and maintained live applications with real users, data modeling and query optimization on complex relational data, and cloud deployment and CI/CD experience required. Preferred skills include multi-tenant SaaS, RBAC, event-driven workflows, LLM integrations (RAG, vector databases), data pipelines, API orchestration, and real-time features like WebSockets. Role is fully remote with 50-60 hour work weeks and IST timezone availability for US client meetings.",
     "descriptionSourceUrl": "https://in.linkedin.com/jobs/view/full-stack-developer-at-neurodrift-4489355654",
@@ -240,25 +202,6 @@
       "python"
     ]
   },
-  "linkedin-4490085274": {
-    "description": "Full-time remote Software Engineer position designing, developing, testing, and maintaining web-based applications and services for a digital media platform. Responsibilities include implementing back-end features, optimizing performance, integrating third-party APIs, and ensuring system reliability and security. Collaborates with product, design, and content teams to translate requirements into scalable solutions. Writes clean, maintainable code and participates in code reviews. Contributes to improving development processes, technical documentation, and deployment support.",
-    "descriptionSourceUrl": "https://in.linkedin.com/jobs/view/software-engineer-at-cxo-events-4490085274",
-    "fingerprint": "50456bad671715a2ad469a10b828653830743f44c09e0aa1d75ce9b60ab9ba34",
-    "keywords": [
-      "Software Engineer",
-      "Java",
-      "Python",
-      "JavaScript",
-      "C#",
-      "Go",
-      "Back-End Web Development",
-      "RESTful APIs",
-      "SQL",
-      "NoSQL",
-      "Git",
-      "Cloud platforms"
-    ]
-  },
   "linkedin-4490292643": {
     "description": "Entry-level Associate Engineer role within Collins Aerospace's AI Enablement & Automation team. Responsibilities include developing AI-powered applications using Python, working with Large Language Models (LLMs), building prototypes, and integrating REST APIs. Tasks involve exploring AI technologies, experimenting with prompt engineering, supporting RAG-based applications, and collaborating with senior engineers. Requires strong programming fundamentals, understanding of AI/ML concepts, and familiarity with databases and version control. Offers exposure to Generative AI, Agentic AI, and the full AI application development lifecycle in a hybrid work environment.",
     "descriptionSourceUrl": "https://in.linkedin.com/jobs/view/graduate-engineer-trainee-ai-ml-at-collins-aerospace-4490292643",
@@ -276,25 +219,6 @@
       "Object-Oriented Programming",
       "Machine Learning",
       "LLM APIs"
-    ]
-  },
-  "linkedin-4490311137": {
-    "description": "Design and build agentic AI workflows and systems to automate enterprise processes. Identify manual business workflows and re-imagine them as reliable agentic solutions. Build complete end-to-end solutions including front-end, backend, and deployment, with ownership of full-stack development. Design and implement RAG pipelines to ground agents in enterprise data. Deploy and operate local/self-hosted LLMs for efficient inference at scale. Build and expose capabilities via MCP for tool and context integration. Engineer human-in-the-loop review and approval flows for high-stakes automated actions. Ensure AI systems are scalable, reliable, observable, and safe in production with guardrails, validation, retries, and cost caps. Follow solid SDLC practices including version control, code review, CI/CD, testing, and deployment.",
-    "descriptionSourceUrl": "https://in.linkedin.com/jobs/view/engineer-agentic-ai-at-tih-iit-bombay-4490311137",
-    "fingerprint": "46a0e960038f82e5894d0a1e7bb363855a9887cd08e7ee555806193c955b3e96",
-    "keywords": [
-      "LangGraph",
-      "LangChain",
-      "LlamaIndex",
-      "AutoGen",
-      "CrewAI",
-      "MCP",
-      "RAG pipelines",
-      "Self-hosted LLMs",
-      "vLLM",
-      "React",
-      "Next.js",
-      "FastAPI"
     ]
   },
   "linkedin-4490587611": {
@@ -370,6 +294,25 @@
       "Collaborative Tools"
     ]
   },
+  "linkedin-4491459862": {
+    "description": "Litmus is seeking full-time engineers for a remote worldwide role across infrastructure, product engineering, and AI research, open to all experience levels including new graduates (no visa sponsorship provided). Depending on focus, responsibilities include architecting reliable platform infrastructure for high-throughput workloads, delivering end-to-end product features, designing RL environments and evaluation rubrics, building experiment orchestration systems, and developing meta-optimization pipelines. Applicants must be proficient in Python, JavaScript/TypeScript, or Node.js, and demonstrate experience building and operating production systems or working within early-stage teams. Strong problem-solving, rapid execution, and independent judgment are essential. Relevant experience in distributed systems, AWS/GCP, data pipelines, ML infrastructure, or reinforcement learning represents a strong signal.",
+    "descriptionSourceUrl": "https://in.linkedin.com/jobs/view/mts-at-litmus-4491459862",
+    "fingerprint": "e7f5a04ea87e6073dd1b4b502466923f669ed6cc717dda266a534cf9c8dc8933",
+    "keywords": [
+      "Python",
+      "JavaScript/TypeScript",
+      "Node.js",
+      "distributed systems",
+      "cloud infrastructure",
+      "reinforcement learning",
+      "LLM fine-tuning",
+      "post-training",
+      "serverless architectures",
+      "AWS/GCP",
+      "experiment orchestration",
+      "data pipelines"
+    ]
+  },
   "linkedin-4492137533": {
     "description": "Lead development and continuous improvement of conversational AI solutions for voice and text interfaces in a remote role based in India. Design and implement end-to-end AI agent pipelines, develop and refine Natural Language Understanding models, and integrate voice SDKs and speech technologies. Collaborate with cross-functional teams to translate requirements into scalable applications, monitor production performance, and optimize model effectiveness. Mentor junior engineers and research emerging AI technologies to incorporate innovations into production solutions.",
     "descriptionSourceUrl": "https://in.linkedin.com/jobs/view/ai-engineer-at-jobgether-4492137533",
@@ -387,41 +330,6 @@
       "Docker",
       "Kubernetes",
       "AWS"
-    ]
-  },
-  "naukri-121126503384": {
-    "description": "Develop and test software for the Securens Systems team in Mahape. The role involves gathering requirements with teammates, troubleshooting issues, and taking part in code reviews. The listing asks for up to one year of experience and familiarity with a programming language, a frontend framework, and a database.",
-    "descriptionSourceUrl": "https://bebee.com/in/jobs/mahape-full-stack-developer-fresher-executive-securens-systems-mumbai--techmap_in_121126503384",
-    "fingerprint": "8685f67273bec6b7b6084c3ddf8e59f6f81255ad93f900399c939a8419d89d9e",
-    "keywords": [
-      "Java",
-      "Python",
-      "C#",
-      "React",
-      "Angular",
-      "MySQL",
-      "MongoDB",
-      "software development",
-      "code reviews"
-    ]
-  },
-  "naukri-121126504604": {
-    "description": "Work with designers and researchers on prototypes and accessible production software for Alef Education’s mobile apps. Build Java and Spring services and REST APIs, design data models, and write automated tests. The Pune role asks for one to two years of relevant experience.",
-    "descriptionSourceUrl": "https://www.alefeducation.com/careers",
-    "fingerprint": "5215817c11997d2fe0867a4a99d593fb7f04f7cf4a1fc73b93f8bbf64bf8ab90",
-    "keywords": [
-      "Java",
-      "Spring",
-      "JavaScript",
-      "Microservices",
-      "REST API",
-      "RabbitMQ",
-      "ActiveMQ",
-      "MongoDB",
-      "Git",
-      "TDD",
-      "BDD",
-      "CI/CD"
     ]
   },
   "naukri-131126500612": {
