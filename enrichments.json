@@ -349,5 +349,42 @@
       "CI/CD Pipelines",
       "Azure OpenAI"
     ]
+  },
+  "linkedin-4492512984": {
+    "description": "We are hiring a Full-Stack Engineer for an AI-native travel platform. The role involves building features end-to-end across backend, web, and mobile using a Generative-AI-native stack. Responsibilities include designing LLM-driven interaction patterns, developing and tuning agents/tools for the AlphaTravel AI engine that coordinate external APIs, and solving applied-AI problems related to reasoning, latency, accuracy, and cost. The position requires fluency in modern stacks like Python, React, React Native, and MongoDB, with an emphasis on using AI coding tools heavily and debugging across the full system. This is a fully remote role based in India with some overlap required with US Pacific hours. Joining is planned for December 2026 or January 2027.",
+    "descriptionSourceUrl": "https://in.linkedin.com/jobs/view/full-stack-engineer-ai-native-at-airial-4492512984",
+    "fingerprint": "241d9ced15333d75f39daaf1f0e34d893e455025e53bd727ae03f8f24071f368",
+    "keywords": [
+      "Full-Stack Engineer",
+      "Python",
+      "React",
+      "React Native",
+      "MongoDB",
+      "Azure",
+      "LLM agents",
+      "AlphaTravel AI engine",
+      "AI coding tools",
+      "Generative-AI-native stack",
+      "problem-solving",
+      "US Pacific hours"
+    ]
+  },
+  "linkedin-4492557307": {
+    "description": "Technology & Automations Associate role at Rise Research. Design and build automation workflows across CRM, email, onboarding, and payments using low-code and code-based solutions. Maintain website and internal portals. Write scripts and APIs in Python and JavaScript to connect systems. Identify and resolve operational bottlenecks across admissions, mentor management, finance, and support. Ensure reliability and documentation for non-technical teams. Work in a fast-paced, globally distributed startup environment.",
+    "descriptionSourceUrl": "https://in.linkedin.com/jobs/view/technology-and-automations-associate-at-rise-research-4492557307",
+    "fingerprint": "8a3a1b2160d0c1f049b229f485b4233047fb5c4676dfdb1a27318d2b54e6b31f",
+    "keywords": [
+      "automation workflows",
+      "CRM",
+      "Python",
+      "JavaScript",
+      "SQL",
+      "Zapier",
+      "Make",
+      "APIs",
+      "integrations",
+      "internal portals",
+      "operational bottlenecks"
+    ]
   }
 }
