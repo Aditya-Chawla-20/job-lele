@@ -1,4 +1,99 @@
 {
+  "linkedin-4383739897": {
+    "description": "Apply 0-5 years of applied ML experience to build decision-making solutions for planning, sequencing, routing, and resource allocation. Utilize agentic coding tools to prototype quickly while maintaining engineering discipline. Develop and evaluate models in optimization (MILP/CP-SAT, heuristics), Deep RL (PPO/SAC/DQN, offline RL, MCTS), and predictive forecasting. Design robust evaluation harnesses using offline simulation, counterfactual testing, and scenario analysis to define KPIs and acceptance thresholds. Collaborate with ML engineers on productionization, addressing latency, throughput, monitoring, reproducibility, model versioning, and safe rollouts. Document technical findings and communicate effectively to both technical and non-technical stakeholders.",
+    "descriptionSourceUrl": "https://in.linkedin.com/jobs/view/machine-learning-scientist-at-dp-world-4383739897",
+    "fingerprint": "511b74a9f4e9e86edddc52bc431e87da445c56c4a41838bee2958f3e6e59c3d5",
+    "keywords": [
+      "ML solutions",
+      "decision-making problems",
+      "planning",
+      "sequencing",
+      "routing",
+      "resource utilization",
+      "agentic coding tools",
+      "Claude Code-style workflows",
+      "prototype",
+      "scaffolds",
+      "refactor",
+      "write tests"
+    ]
+  },
+  "linkedin-4424221091": {
+    "description": "An AI Customer Engineer will build scalable AI agent solutions and accelerate enterprise Generative AI adoption. The role involves designing RAG pipelines, prompt engineering workflows, and LLM integrations while developing scalable backend services and APIs. Work includes enabling cloud-native deployments with containerization and microservices architecture. The position is an onsite requirement for 5 days a week in Chennai or Bangalore, collaborating with architects, product teams, and cross-functional stakeholders to deliver intelligent, production-grade AI applications.",
+    "descriptionSourceUrl": "https://in.linkedin.com/jobs/view/ai-customer-engineer-at-cognizant-4424221091",
+    "fingerprint": "80d8b30b0db932568772806ccd720cb7f5752653e50daff269ad11bf4fbae2f7",
+    "keywords": [
+      "Google ADK",
+      "CoPilot Studio",
+      "CrewAI",
+      "Autogen",
+      "RAG pipelines",
+      "Vector DBs",
+      "prompt engineering",
+      "Python libraries",
+      "LangChain",
+      "Hugging Face",
+      "OpenAI API",
+      "FastAPI"
+    ]
+  },
+  "linkedin-4441278581": {
+    "description": "Software Engineer – AI Accelerated Development role building agentic AI features into clinical trial platforms across .NET stack. Responsibilities include designing and building AI agents and agentic workflows with tool-use/function calling, integrating LLM APIs (Anthropic, OpenAI, Bedrock, Azure OpenAI) into .NET applications, delivering AI features end-to-end from backend to front-end, building custom agents with Claude Agent SDK, authoring custom skills/slash commands for Claude Code, implementing RAG pipelines with vector stores, instrumenting agents for observability/evaluation, and applying AI-specific risk controls in regulated environments. Requires daily hands-on use of Claude Code or equivalent agentic CLI as primary development tool.",
+    "descriptionSourceUrl": "https://in.linkedin.com/jobs/view/software-engineer-ai-accelerated-development-at-signant-health-4441278581",
+    "fingerprint": "a0866b3ab5ccc64874fd1dbcb7f48d24cf30f54df19bf32f7dff3862b5c81099",
+    "keywords": [
+      "Software Engineer",
+      "AI Accelerated Development",
+      "agentic workflows",
+      "LLM API integration",
+      ".NET",
+      "Claude Code",
+      "Claude Agent SDK",
+      "RAG pipelines",
+      "vector stores",
+      "prompt engineering",
+      "Python",
+      "observability"
+    ]
+  },
+  "linkedin-4446240755": {
+    "description": "As a Technical Consultant specializing in AI Integration, the role involves implementing, configuring, and customizing AI-driven solutions for enterprise applications and workflows. Responsibilities include developing Retrieval-Augmented Generation (RAG) pipelines, building connectors, and configuring prompts and guardrails. The position requires collaboration with architects and stakeholders to validate requirements and deliver proofs of concept. Performance optimization, observability, and cost optimization are critical for ensuring reliable and scalable AI solutions. Deployment must adhere to organizational and regulatory compliance standards. The role focuses on translating architectural blueprints into working systems with a focus on reliability, scalability, and responsible AI principles throughout the delivery lifecycle.",
+    "descriptionSourceUrl": "https://in.linkedin.com/jobs/view/technical-consultant-ai-integration-at-ibm-4446240755",
+    "fingerprint": "abe51d04c762c7cd0aac2a8dddece545355df4953668d2faada941919a7734b6",
+    "keywords": [
+      "API Integration",
+      "Retrieval-Augmented Generation (RAG)",
+      "LLMOps Practices",
+      "Secure Deployment",
+      "Workflow Automation",
+      "Performance Tuning",
+      "Cost Optimization",
+      "Observability",
+      "Architectural Blueprints",
+      "Responsible AI Principles",
+      "Enterprise Applications",
+      "Event-Driven Patterns"
+    ]
+  },
+  "linkedin-4466861991": {
+    "description": "Mid-level role developing GenAI features and workflows using Python and AWS Bedrock. Responsibilities include implementing Retrieval-Augmented Generation (RAG) pipelines, building multi-step agent workflows with LangChain/LangGraph, integrating LLMs with enterprise tools, writing tested Python code, and monitoring latency and cost metrics.",
+    "descriptionSourceUrl": "https://in.linkedin.com/jobs/view/genai-agentic-ai-engineer-at-infosys-4466861991",
+    "fingerprint": "332d5869040fa15ff9201d0a9b2017ee4dd2c7171f8947f94b870496a001beb5",
+    "keywords": [
+      "Python",
+      "OOP",
+      "typing",
+      "pytest/unittest",
+      "fixtures",
+      "basic async",
+      "AWS Bedrock",
+      "Model invocation",
+      "Knowledge bases",
+      "retrieval integration",
+      "guardrails",
+      "access controls"
+    ]
+  },
   "linkedin-4484278694": {
     "description": "Build responsive event-platform interfaces and client branding alongside senior developers and designers. The role includes troubleshooting UI issues across browsers, maintaining templates, and using HTML, CSS, and JavaScript. RainFocus accepts one to two years of experience or equivalent project work.",
     "descriptionSourceUrl": "https://in.linkedin.com/jobs/view/jr-ui-developer-remote-at-rainfocus-4484278694",
@@ -15,99 +110,19 @@
       "cross-browser compatibility"
     ]
   },
-  "linkedin-4489355654": {
-    "description": "Senior Full Stack Developer role at a US-based AI voice and enterprise software company. Responsibilities include building web applications end-to-end, designing backend architecture and APIs, constructing data pipelines and workflow automation, implementing multi-tenancy and RBAC, developing real-time dashboards and features, and integrating LLMs and external services. Duties encompass cloud deployment, CI/CD, production monitoring, and owning software performance post-launch. Position requires 1.5+ years hands-on full stack development with strong frontend, backend, API, and database fundamentals. Built and maintained live applications with real users, data modeling and query optimization on complex relational data, and cloud deployment and CI/CD experience required. Preferred skills include multi-tenant SaaS, RBAC, event-driven workflows, LLM integrations (RAG, vector databases), data pipelines, API orchestration, and real-time features like WebSockets. Role is fully remote with 50-60 hour work weeks and IST timezone availability for US client meetings.",
-    "descriptionSourceUrl": "https://in.linkedin.com/jobs/view/full-stack-developer-at-neurodrift-4489355654",
-    "fingerprint": "56cc144932e3404a53ec1ac4b24f0feca63191bff355ec71528630619772ccbf",
+  "linkedin-4486147862": {
+    "description": "Full-stack engineer to design and ship features end-to-end, build and productionize LLM-powered agents and workflows from prototype to production, and influence engineering practices. Role requires 2+ years shipping production software, strong TypeScript skills across the stack, and hands-on experience with Cloudflare developer platform (Workers, D1, R2, Durable Objects, Workflows). Must be comfortable with ambiguity, take ownership of vague problems, and stay current with evolving LLM tools and models.",
+    "descriptionSourceUrl": "https://in.linkedin.com/jobs/view/founding-engineer-agentic-ai-full-stack-at-grapes-worldwide-4486147862",
+    "fingerprint": "f2749a7427a8f21e642534e0e081a6fda2617bf4fb41ce56c036342e20d6653a",
     "keywords": [
-      "Full Stack Developer",
-      "Backend Architecture",
-      "Query Optimization",
-      "Cloud Deployment",
-      "CI/CD",
-      "Production Monitoring",
-      "Multi-tenancy",
-      "RBAC",
-      "Vector Databases",
-      "Data Pipelines",
-      "API Orchestration",
-      "Real-time Features"
-    ]
-  },
-  "linkedin-4489368220": {
-    "description": "Backend Engineer role at NeuroDrift building REST APIs, backend workflows, and data pipelines. Responsibilities include server-side business logic, API integration, debugging, and maintaining data consistency. Position requires 0-3 years backend experience, hands-on framework knowledge, database skills, and API authentication expertise. This fully remote role demands 50-60 hour work weeks with IST timezone availability for US client meetings. Immediate joiners preferred. Team emphasizes AI-native development using Claude Code and expects candidates to leverage AI tooling for faster delivery.",
-    "descriptionSourceUrl": "https://in.linkedin.com/jobs/view/back-end-developer-at-neurodrift-4489368220",
-    "fingerprint": "542c6c1c0474a96d06d7019ea1625ba8c703012f4672de03348c9dd05b1ab874",
-    "keywords": [
-      "Backend Engineer",
-      "REST APIs",
-      "API integration",
-      "server-side business logic",
-      "database operations",
-      "API authentication",
-      "error handling",
-      "debugging",
-      "0-3 years experience",
-      "data pipelines",
-      "Docker",
-      "LLM API integrations"
-    ]
-  },
-  "linkedin-4489509854": {
-    "description": "We are seeking an AI Backend Engineer to design and develop scalable, production-ready AI agents and agentic workflows. Responsibilities include building multi-agent systems with tool/function calling, integrating LLMs with external APIs, and constructing backend services using Python and FastAPI. The role involves designing distributed, event-driven architectures with Celery, Kafka, RabbitMQ, or Redis for reliable state management and workflow execution. You will build RAG capabilities using vector databases, debug and optimize AI service performance, and support deployment on GCP or AWS. This position requires 1–4 years of Python development experience with a strong focus on Agentic AI frameworks such as LangGraph, AutoGen, or CrewAI, and practical understanding of microservices, asynchronous programming, Pydantic, and NoSQL databases.",
-    "descriptionSourceUrl": "https://in.linkedin.com/jobs/view/artificial-intelligence-engineer-at-techolution-4489509854",
-    "fingerprint": "76255e87e4d6b674923a885cca457c45e583575739ea9c8d74736094972ddd92",
-    "keywords": [
-      "Python",
-      "FastAPI",
-      "Flask",
-      "LLMs",
-      "Agentic AI",
-      "LangGraph",
-      "AutoGen",
-      "CrewAI",
-      "tool/function calling",
-      "multi-agent systems",
-      "microservices",
-      "distributed systems"
-    ]
-  },
-  "linkedin-4489573179": {
-    "description": "AI-ML Engineer position at VoiceArena focused on building scalable speech AI systems. Responsibilities include designing data pipelines from raw audio to training-ready datasets, developing evaluation frameworks for Automatic Speech Recognition (ASR) and speech-to-speech systems, fine-tuning speech models like Whisper and wav2vec2, and optimizing inference pipelines. Role involves working with large-scale multilingual datasets across 20+ Indian languages, implementing multilingual and code-switched speech handling, and deploying models using cloud infrastructure and containerization tools. Required qualifications include 1-2 years hands-on AI/ML experience, proficiency in Python and PyTorch/TensorFlow/Hugging Face, familiarity with speech recognition architectures, and experience with large datasets and ML pipelines.",
-    "descriptionSourceUrl": "https://in.linkedin.com/jobs/view/ai-ml-engineer-at-voice-arena-4489573179",
-    "fingerprint": "691204b351c6e5fbf373121b43d05ea2393ab2a8f226f539b4d33fd1bfd06f19",
-    "keywords": [
-      "Python",
-      "PyTorch",
-      "TensorFlow",
-      "Hugging Face Transformers",
-      "Whisper",
-      "wav2vec2",
-      "HuBERT",
-      "ASR",
-      "Word Error Rate",
-      "ML pipelines",
-      "Data preprocessing",
-      "Cloud infrastructure"
-    ]
-  },
-  "linkedin-4489592026": {
-    "description": "Build real-time impact web apps and APIs in Python, Java, or JavaScript for a remote mission-driven role. Design scalable backend systems, donation platforms, and dashboards serving women and children. Apply end-to-end ownership with 3+ years backend experience; familiarity with AWS/GCP/Azure and REST APIs preferred. Compensation starts at ₹25 LPA with performance bonuses and fast-track Tech Lead progression.",
-    "descriptionSourceUrl": "https://in.linkedin.com/jobs/view/software-engineer-at-udaan-4489592026",
-    "fingerprint": "62382a0bdc82f4ec4f2ef6902a5299a4b484c28cf7575a48571c88363b19a70f",
-    "keywords": [
-      "Python",
-      "Java",
-      "JavaScript",
-      "backend",
-      "REST APIs",
-      "databases",
-      "Git",
-      "ownership",
-      "AWS",
-      "GCP",
-      "Azure",
-      "Tech Lead"
+      "2+ years shipping production software",
+      "Strong in TypeScript",
+      "Cloudflare developer platform",
+      "Workers, D1, R2, Durable Objects, Workflows",
+      "Hands-on experience building with LLMs",
+      "prompting, tool calling, structured outputs",
+      "Ownership",
+      "Comfort with ambiguity"
     ]
   },
   "linkedin-4489783477": {
@@ -129,60 +144,6 @@
       "Git"
     ]
   },
-  "linkedin-4489856144": {
-    "description": "We are seeking a skilled Cloud & AI Engineer to design and deploy intelligent AI agents for a modern cloud-native website platform. The role involves building autonomous AI systems capable of complex reasoning, tool use, and multi-step execution on AWS. Responsibilities include developing agents for website creation, management, code generation, scheduling, lead qualification, and domain-specific assistants (e.g., real estate, salons). You will integrate AI with structured business data, design prompt strategies and orchestration logic, and build chatbots and webmaster tools. The position requires converting business requirements into practical AI-powered functionality across web, mobile, and cloud infrastructure.",
-    "descriptionSourceUrl": "https://in.linkedin.com/jobs/view/ai-agent-engineer-at-kreatewebsites-4489856144",
-    "fingerprint": "bb26611c83c64f13683574c54fcff20f3b0a57ba70c47d1b67bf745f0a1c3769",
-    "keywords": [
-      "AI Agent Developer",
-      "Cloud & AI Engineer",
-      "AWS",
-      "prompt engineering",
-      "tool calling",
-      "function calling",
-      "retrieval-augmented generation",
-      "multi-step AI workflows",
-      "JavaScript",
-      "TypeScript",
-      "Python",
-      "web applications"
-    ]
-  },
-  "linkedin-4489859228": {
-    "description": "We are seeking a hands-on Full Stack Engineer to independently build and scale consumer-facing features and backend systems for a subscription management platform. Responsibilities include developing responsive web apps with Next.js, React, and TypeScript; building scalable backend services, APIs, and database schemas with Node.js and PostgreSQL/Supabase; and owning critical customer journeys such as signup, checkout, and subscription management. The role involves integrating third-party payment processors and APIs, improving application performance and reliability, building internal tools, debugging production issues, and collaborating with product and engineering teams. This ownership-heavy position requires comfort working independently in a remote environment and taking features from concept to production.",
-    "descriptionSourceUrl": "https://in.linkedin.com/jobs/view/full-stack-engineer-at-bundled-4489859228",
-    "fingerprint": "89ead67d11942f961fcf7104292f0af69524d08e21fc06804263b278c74aa4a0",
-    "keywords": [
-      "Next.js",
-      "React",
-      "TypeScript",
-      "Node.js",
-      "PostgreSQL",
-      "Supabase",
-      "Stripe",
-      "REST APIs",
-      "CI/CD",
-      "Vercel",
-      "payment integrations",
-      "subscription management"
-    ]
-  },
-  "linkedin-4489860676": {
-    "description": "An AI Engineer will build product features using large language models to assist users with international relocation. The role involves implementing Retrieval-Augmented Generation (RAG) systems with trusted data, creating AI agents and workflows for task automation, and integrating features via clean APIs. Responsibilities include testing features on real user questions, monitoring speed and accuracy post-launch, and collaborating with product and design teams. The position requires 1 to 3 years of experience or a fresher with strong projects, good Python skills, and hands-on experience with at least one LLM API (OpenAI, Claude, or Gemini). A basic understanding of embeddings, vector search, and prompt design is required.",
-    "descriptionSourceUrl": "https://in.linkedin.com/jobs/view/ai-engineer-at-terratern-4489860676",
-    "fingerprint": "1c5b4aa3a290d55a78e990a5310dd714e4a89933071c71f76c17da05c6d80e15",
-    "keywords": [
-      "llms",
-      "agents",
-      "api",
-      "ai",
-      "ml",
-      "prompt engineering",
-      "langchain",
-      "rag",
-      "python"
-    ]
-  },
   "linkedin-4490292643": {
     "description": "Entry-level Associate Engineer role within Collins Aerospace's AI Enablement & Automation team. Responsibilities include developing AI-powered applications using Python, working with Large Language Models (LLMs), building prototypes, and integrating REST APIs. Tasks involve exploring AI technologies, experimenting with prompt engineering, supporting RAG-based applications, and collaborating with senior engineers. Requires strong programming fundamentals, understanding of AI/ML concepts, and familiarity with databases and version control. Offers exposure to Generative AI, Agentic AI, and the full AI application development lifecycle in a hybrid work environment.",
     "descriptionSourceUrl": "https://in.linkedin.com/jobs/view/graduate-engineer-trainee-ai-ml-at-collins-aerospace-4490292643",
@@ -202,44 +163,6 @@
       "LLM APIs"
     ]
   },
-  "linkedin-4490587611": {
-    "description": "Junior AI Developer / Vibe Coder role focused on building applications using AI-powered coding platforms and modern web technologies. Responsibilities include developing and integrating AI features, LLMs, and third-party APIs into web applications, working with frontend and backend systems, debugging AI-assisted code, and translating requirements into functional prototypes. Position requires 1–2 years of experience, familiarity with AI coding tools, and understanding of APIs and database concepts. Remote location with full-time employment.",
-    "descriptionSourceUrl": "https://in.linkedin.com/jobs/view/junior-ai-developer-vibe-coder-at-evangelist-apps-4490587611",
-    "fingerprint": "8e01a572363815d9095b1f07a4f85d3d0b12c84c45895a1a6c2dafb8a5b4ed55",
-    "keywords": [
-      "React.js",
-      "Cursor",
-      "Lovable",
-      "Replit",
-      "Claude",
-      "API integrations",
-      "LLMs",
-      "Large Language Models",
-      "API",
-      "frontend frameworks",
-      "backend development",
-      "database concepts"
-    ]
-  },
-  "linkedin-4490735444": {
-    "description": "Fresh Platter is a technology-driven fresh-produce supply-chain company in Bengaluru seeking software engineers to build the brains of their integrated system. The role involves developing software for machines and sensing systems, building products for farm sourcing, ripening, grading, packing, inventory, logistics and traceability, and implementing AI-driven automation for procurement and operations. Engineers will work across the full stack - front end, back end, APIs, databases and device communication - owning features from development through production deployment. The position is on-site at their Cheemasandra facility and involves working with mechanical engineers, IISc and partner firms on patented systems. Freshers with strong academics and engineers who have shipped production software are both welcome.",
-    "descriptionSourceUrl": "https://in.linkedin.com/jobs/view/software-engineer-at-fresh-platter-4490735444",
-    "fingerprint": "3a459eaad7c515a7f889ad8eb16cb794e59af2a375aa3516833ebc2fde5611e7",
-    "keywords": [
-      "B.E. or B.Tech",
-      "Computer Science",
-      "Information Technology",
-      "Electronics and Communication",
-      "Electronics and Telecommunication",
-      "Electrical and Electronics",
-      "0 to 4 years",
-      "freshers welcome",
-      "Solid programming fundamentals",
-      "problem-solving skills",
-      "at least one language",
-      "working understanding of databases"
-    ]
-  },
   "linkedin-4491102944": {
     "description": "A 12-month paid apprenticeship for individuals with a Bachelor's or Master's in Computer Science or IT Engineering. Responsibilities include writing code in languages like Java, JavaScript, .NET, or Python, working in agile teams on API specs and code reviews, designing customer-facing applications for web and mobile channels, and developing data collection systems. Qualifications require graduation in a technical discipline. The role offers flexible hybrid work arrangements.",
     "descriptionSourceUrl": "https://in.linkedin.com/jobs/view/apprentice-at-american-express-4491102944",
@@ -255,24 +178,6 @@
       "customer-facing applications",
       "native iOS",
       "Android"
-    ]
-  },
-  "linkedin-4491238090": {
-    "description": "Full-time remote Software Engineer position requiring design, development, and maintenance of backend services for digital solutions. Responsibilities include writing testable code, implementing APIs and integrations, collaborating with product/design teams, conducting code reviews, troubleshooting issues, optimizing performance, and contributing to architecture discussions. Role requires adherence to secure development practices for financial and insurance applications.",
-    "descriptionSourceUrl": "https://in.linkedin.com/jobs/view/software-engineer-at-cascovia-4491238090",
-    "fingerprint": "bf0d1a16c85b5ddc8a359dcf824227eae5322b5f4d71e92fe7197ca0d98161b9",
-    "keywords": [
-      "Software Engineer",
-      "APIs",
-      "Integrations",
-      "Object-Oriented Programming",
-      "Git",
-      "Version Control",
-      "Automated Tests",
-      "Secure Development Practices",
-      "FinTech",
-      "InsurTech",
-      "Collaborative Tools"
     ]
   },
   "linkedin-4491459862": {
@@ -294,6 +199,25 @@
       "data pipelines"
     ]
   },
+  "linkedin-4491905691": {
+    "description": "We are seeking independent Full-Stack Software Engineers to build, deploy, and maintain end-to-end applications. The role involves designing responsive web applications with React and TypeScript, building reliable back-end services with Python and Django REST Framework, and working with PostgreSQL databases. Responsibilities include deploying and managing applications on AWS, implementing security practices, and leveraging AI coding agents while independently verifying output. Engineers will take ownership of features across the full lifecycle, diagnose production issues, and collaborate with researchers and domain experts. The position requires 2–8 years of relevant experience, proficiency in both front-end and back-end systems, and a Bachelor's or Master's in Computer Science or related field. Candidates must be willing to complete a practical take-home assessment.",
+    "descriptionSourceUrl": "https://in.linkedin.com/jobs/view/full-stack-web-developer-at-indian-institute-of-technology-bombay-4491905691",
+    "fingerprint": "8e7b204025d204c11abfa3fadbf94036461b0d17b812b87cb35bfe0608344f4a",
+    "keywords": [
+      "React",
+      "TypeScript",
+      "Python",
+      "Django",
+      "Django REST Framework",
+      "PostgreSQL",
+      "AWS",
+      "Git",
+      "APIs",
+      "CI/CD",
+      "Linux",
+      "Docker"
+    ]
+  },
   "linkedin-4491914103": {
     "description": "An AI Engineer will build next-generation Intelligent Document Processing and Generative AI solutions. Responsibilities include training and fine-tuning Deep Learning models for Document AI, developing object detection, OCR, and information extraction models, building NER and NLP pipelines, and optimizing model accuracy and latency. The role involves building AI chatbots and enterprise GenAI applications, developing RAG pipelines using vector databases, designing AI agents and multi-step workflows, and building Text-to-SQL solutions. Additional tasks include implementing prompt engineering strategies, working with embeddings and semantic search, and managing conversation memory and context. The engineer will develop scalable backend services using Python and Flask, design REST APIs, and work with PostgreSQL, Redis, and vector databases to build multi-tenant AI applications. The role requires writing unit and integration tests with PyTest, monitoring model performance, debugging models and applications, and collaborating with teams to deliver production-ready AI solutions.",
     "descriptionSourceUrl": "https://in.linkedin.com/jobs/view/artificial-intelligence-engineer-at-star-software-4491914103",
@@ -313,6 +237,63 @@
       "Information Extraction"
     ]
   },
+  "linkedin-4491917329": {
+    "description": "As a Technical Consultant specializing in AI Integration, you will implement, configure, and customize AI-driven solutions that integrate into enterprise applications and workflows. Responsibilities include developing Retrieval-Augmented Generation (RAG) pipelines, building connectors, configuring prompts and guardrails, optimizing performance, ensuring secure and compliant deployment of AI services and APIs, and translating architectural blueprints into working systems. The role requires collaboration with architects and stakeholders to deliver proofs of concept and harden solutions for production, focusing on reliability, scalability, and responsible AI principles throughout the delivery lifecycle.",
+    "descriptionSourceUrl": "https://in.linkedin.com/jobs/view/technical-consultant-ai-integration-at-ibm-4491917329",
+    "fingerprint": "1d34b1c3b24b05586c3e2e970daefb1c39a51c9cabb9967f448e254eb9ddd85c",
+    "keywords": [
+      "AI Integration",
+      "Retrieval-Augmented Generation (RAG)",
+      "API Integration",
+      "Workflow Automation",
+      "LLMOps",
+      "Secure Deployment",
+      "Performance Tuning",
+      "Cost Optimization",
+      "Observability",
+      "Architectural Blueprints",
+      "Enterprise Applications",
+      "Responsible AI"
+    ]
+  },
+  "linkedin-4491931525": {
+    "description": "Full-time remote Software Engineer position focused on designing and maintaining scalable back-end services and web applications. Responsibilities include writing clean, tested code, performing code reviews, debugging production issues, optimizing performance across services and APIs, integrating third-party services, and contributing to architectural decisions. Requires collaboration with product managers and engineers to translate requirements into technical solutions. Involves documenting systems, following best practices, and improving development workflows and tools.",
+    "descriptionSourceUrl": "https://in.linkedin.com/jobs/view/back-end-developer-at-onehook-4491931525",
+    "fingerprint": "5335635a76e7c634befb9686e11a8758a1c63a432e1ece6249aa793b16e1fd36",
+    "keywords": [
+      "Software Engineer",
+      "back-end services",
+      "web applications",
+      "RESTful APIs",
+      "server-side frameworks",
+      "Object-Oriented Programming",
+      "design patterns",
+      "Git",
+      "version control",
+      "testing frameworks",
+      "debugging tools",
+      "performance optimization"
+    ]
+  },
+  "linkedin-4491970229": {
+    "description": "As an Applied AI Specialist: Cloud FullStack, you will design, build, and evolve cloud-native and hybrid applications that translate client requirements into scalable, secure production-ready solutions. This role involves collaborating with digital workers and intelligent agents to deliver solutions, applying an AI-First mindset and following established methodologies. Key tasks include solution design and application development using cloud technologies, designing and operating CI/CD and GitOps pipelines with Infrastructure as Code and DevSecOps controls, and performing quality engineering through unit, module, and functional testing with testing agents and synthetic data. You will analyze logs and stack traces using AI agents to triage and resolve incidents across different phases.",
+    "descriptionSourceUrl": "https://in.linkedin.com/jobs/view/applied-ai-specialist-cloud-fullstack-at-ibm-4491970229",
+    "fingerprint": "e8f81c67ed76dc8dad6346aba41ed8c7680353295cfe52385ef367788c59ad51",
+    "keywords": [
+      "Applied AI Specialist",
+      "Cloud FullStack",
+      "cloud-native",
+      "hybrid applications",
+      "solution design",
+      "AI-First mindset",
+      "GitOps",
+      "DevSecOps",
+      "quality engineering",
+      "functional testing",
+      "synthetic data",
+      "incident resolution"
+    ]
+  },
   "linkedin-4492137533": {
     "description": "Lead development and continuous improvement of conversational AI solutions for voice and text interfaces in a remote role based in India. Design and implement end-to-end AI agent pipelines, develop and refine Natural Language Understanding models, and integrate voice SDKs and speech technologies. Collaborate with cross-functional teams to translate requirements into scalable applications, monitor production performance, and optimize model effectiveness. Mentor junior engineers and research emerging AI technologies to incorporate innovations into production solutions.",
     "descriptionSourceUrl": "https://in.linkedin.com/jobs/view/ai-engineer-at-jobgether-4492137533",
@@ -330,6 +311,25 @@
       "Docker",
       "Kubernetes",
       "AWS"
+    ]
+  },
+  "linkedin-4492162476": {
+    "description": "An AI professional role in Bengaluru requiring 1-3 years of experience to build AI solutions across Sales, Purchase, Imports, and Accounting using Machine Learning, NLP, and Neural Networks. Responsibilities include developing AI solutions with Python and TypeScript, building workflows in ComfyUI, and integrating APIs. The position requires hands-on experience with local generative AI models, YoloV8, and deep learning libraries like Ollama and vLLM. Collaboration with business and technical teams is essential to develop practical AI solutions. The role mandates five days a week on-site in Bengaluru with face-to-face interviews only.",
+    "descriptionSourceUrl": "https://in.linkedin.com/jobs/view/ai-developer-at-msi-services-pvt-ltd-4492162476",
+    "fingerprint": "683dca4aaad12539751dae9b47d21d55904b125a16b5dda91973fe6bacbb92f1",
+    "keywords": [
+      "Machine Learning",
+      "NLP",
+      "Neural Networks",
+      "Deep Learning",
+      "Python",
+      "TypeScript",
+      "ComfyUI",
+      "YoloV8",
+      "Ollama",
+      "vLLM",
+      "APIs",
+      "Node.js"
     ]
   },
   "linkedin-4492455780": {
@@ -369,6 +369,24 @@
       "US Pacific hours"
     ]
   },
+  "linkedin-4492543982": {
+    "description": "Full-time remote Software Engineer role designing, implementing, and testing backend services and APIs for an AI-backed outbound sales platform. Responsibilities include improving system performance, integrating data sources for buyer research, automating processes for sales representatives, and monitoring production systems. Collaborates with product and operations teams to translate requirements into scalable solutions and contributes to code reviews and technical documentation.",
+    "descriptionSourceUrl": "https://in.linkedin.com/jobs/view/software-engineer-at-nextsdr-4492543982",
+    "fingerprint": "7b140074c361eb3d2735fd90304cc76de4d9790e40d433cfa5f0b474a42378f3",
+    "keywords": [
+      "Software Engineer",
+      "APIs",
+      "Databases",
+      "Cloud Platforms",
+      "CI/CD",
+      "Data Structures",
+      "Algorithms",
+      "Object-Oriented Programming",
+      "Python",
+      "Java",
+      "JavaScript/TypeScript"
+    ]
+  },
   "linkedin-4492557307": {
     "description": "Technology & Automations Associate role at Rise Research. Design and build automation workflows across CRM, email, onboarding, and payments using low-code and code-based solutions. Maintain website and internal portals. Write scripts and APIs in Python and JavaScript to connect systems. Identify and resolve operational bottlenecks across admissions, mentor management, finance, and support. Ensure reliability and documentation for non-technical teams. Work in a fast-paced, globally distributed startup environment.",
     "descriptionSourceUrl": "https://in.linkedin.com/jobs/view/technology-and-automations-associate-at-rise-research-4492557307",
@@ -385,6 +403,44 @@
       "integrations",
       "internal portals",
       "operational bottlenecks"
+    ]
+  },
+  "linkedin-4492921878": {
+    "description": "Full-Stack Software Engineer - AI/LLM Applications role designing and deploying modern web applications and AI-powered tools for investment research. Responsibilities include building responsive UIs with React.js/TypeScript, developing Python backend services and REST APIs, integrating SQL databases, and integrating large language model APIs (OpenAI, Anthropic, Gemini) into production applications. Requires implementing reliable LLM workflows with prompt handling and error management, developing AI-powered research and document processing tools, and building secure authentication and role-based access controls. Position involves deploying and maintaining applications on cloud infrastructure (AWS, Azure, GCP), integrating external financial data sources, and automating internal business processes. Requires collaboration with investment and operations teams to translate business requirements into scalable technical solutions. Must communicate technical concepts clearly to both technical and non-technical stakeholders. Position requires remote work from India during evening hours with partial overlap with U.S. business hours.",
+    "descriptionSourceUrl": "https://in.linkedin.com/jobs/view/full-stack-software-engineer-%E2%80%93-ai-llm-applications-at-contrast-capital-management-llc-4492921878",
+    "fingerprint": "474cbef2b61b29aae6f0b9191e5daf3ca2dbe127a3ef82588c4d5100ba2af8a8",
+    "keywords": [
+      "Full-Stack Software Engineer",
+      "AI/LLM Applications",
+      "React.js",
+      "TypeScript",
+      "Python",
+      "SQL databases",
+      "REST APIs",
+      "OpenAI",
+      "Anthropic",
+      "Gemini",
+      "LLM workflows",
+      "prompt handling"
+    ]
+  },
+  "linkedin-4493229408": {
+    "description": "Senior Python Developer role involving AI/ML model development, Generative AI implementation with LLMs and Prompt Engineering, and data pipeline management on AWS SageMaker. Responsibilities include statistical analysis, data modeling, feature engineering, and building anomaly detection/classification systems. Requires expertise in time-series forecasting, data visualization, and implementing RAG architectures with LLM guardrails.",
+    "descriptionSourceUrl": "https://in.linkedin.com/jobs/view/data-scientist-at-capgemini-4493229408",
+    "fingerprint": "af9c99e94920ac03b56bf96c0a2b93f4244bc6956bbd931ecd78b20a30b93090",
+    "keywords": [
+      "Python",
+      "SQL",
+      "AWS",
+      "SageMaker",
+      "Machine Learning",
+      "Predictive Analytics",
+      "Time-Series Forecasting",
+      "Anomaly Detection",
+      "Classification",
+      "LLMs",
+      "Prompt Engineering",
+      "RAG"
     ]
   }
 }
