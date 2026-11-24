@@ -94,6 +94,23 @@
       "access controls"
     ]
   },
+  "linkedin-4486136900": {
+    "description": "Hands-on role building and sustaining an AI systems platform for mission-critical edge devices. Implement containerless OCI-based packaging and runtime, contribute to on-device orchestration and OTA lifecycle management, optimize inference and resource usage on constrained CPU/GPU/NPU hardware, and develop cross-compilation and CI/CD pipelines for multi-architecture builds. Integrate device fleet with cloud control plane via REST/gRPC/OpenAPI/MQTT, diagnose defects on real hardware, and leverage agentic AI coding tools. Collaborate in a distributed team across NA, Europe, and India using Linux and Git-based workflows.",
+    "descriptionSourceUrl": "https://in.linkedin.com/jobs/view/associate-engineer-edge-ai-at-aptiv-4486136900",
+    "fingerprint": "dc6a430397ed17bf51a9901e9bf8c8c3f643637923126e52931241a61a80b24d",
+    "keywords": [
+      "Rust",
+      "Python",
+      "agentic AI tools",
+      "Linux",
+      "Git",
+      "embedded Linux",
+      "cross-compilation",
+      "CI/CD pipelines",
+      "OTA updates",
+      "multi-architecture builds"
+    ]
+  },
   "linkedin-4486147862": {
     "description": "Full-stack engineer to design and ship features end-to-end, build and productionize LLM-powered agents and workflows from prototype to production, and influence engineering practices. Role requires 2+ years shipping production software, strong TypeScript skills across the stack, and hands-on experience with Cloudflare developer platform (Workers, D1, R2, Durable Objects, Workflows). Must be comfortable with ambiguity, take ownership of vague problems, and stay current with evolving LLM tools and models.",
     "descriptionSourceUrl": "https://in.linkedin.com/jobs/view/founding-engineer-agentic-ai-full-stack-at-grapes-worldwide-4486147862",
@@ -107,6 +124,25 @@
       "prompting, tool calling, structured outputs",
       "Ownership",
       "Comfort with ambiguity"
+    ]
+  },
+  "linkedin-4488930495": {
+    "description": "AI Engineer to develop AI-powered tools, plugins, and automation solutions for Autodesk Revit and AutoCAD. Role involves building intelligent systems that understand user instructions, interact with CAD/BIM models, automate engineering workflows, and integrate LLMs like OpenAI GPT. Responsibilities include developing custom plugins, building AI agents and chatbots, automating drafting and modeling processes, and creating APIs to connect Autodesk applications with AI platforms. Requires strong Python/C# skills, Autodesk API experience, and familiarity with LLM frameworks such as LangChain or LangGraph.",
+    "descriptionSourceUrl": "https://in.linkedin.com/jobs/view/ai-engineer-at-nyei-4488930495",
+    "fingerprint": "b46990644798ab9454e160711e1675f869e5663b35a0f01bb15879387b21fb63",
+    "keywords": [
+      "Python",
+      "C#",
+      "Revit API",
+      "AutoCAD .NET API",
+      "LLM APIs",
+      "OpenAI GPT",
+      "LangChain",
+      "LangGraph",
+      "Semantic Kernel",
+      "REST APIs",
+      "JSON",
+      "Git"
     ]
   },
   "linkedin-4491102944": {
@@ -403,6 +439,25 @@
       "Hibernate",
       "Tomcat",
       "Redis Cache"
+    ]
+  },
+  "linkedin-4492695454": {
+    "description": "FDEs bridge technical foundations with human skills to deliver AI solutions in regulated industries. They apply software engineering fundamentals to full-stack development, utilizing applied AI and machine learning techniques including model fine-tuning, RAG, evals, and LLM deployment. FDEs build data engineering pipelines and cloud infrastructure with a focus on security for finance, healthcare, and government sectors. The role emphasizes rapid prototyping using AI tools to deliver proof-of-concepts quickly. Critical human skills include translating vague business needs into technical specifications through strong communication and writing, conducting user-feedback loops with listening and empathy, applying systems thinking to build reinforcement loops for production-grade accuracy, and tying work to measurable business outcomes like adoption, retention, and ROI rather than just clean code.",
+    "descriptionSourceUrl": "https://in.linkedin.com/jobs/view/fullstack-ai-engineer-at-anblicks-4492695454",
+    "fingerprint": "fb0bf1e2f522b0522b984dd0a04108d1c40107786013bda9b479063e7135362c",
+    "keywords": [
+      "Software engineering fundamentals",
+      "Full-stack experience",
+      "Applied AI",
+      "Machine learning",
+      "Model fine-tuning",
+      "RAG",
+      "Evals",
+      "LLM deployment",
+      "Data engineering",
+      "Cloud infrastructure",
+      "Regulated industries",
+      "Finance"
     ]
   },
   "linkedin-4492921878": {
