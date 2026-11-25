@@ -145,6 +145,44 @@
       "Comfort with ambiguity"
     ]
   },
+  "linkedin-4486305331": {
+    "description": "Senior Generative AI Engineer role requiring end-to-end design and implementation of Large Language Model (LLM) solutions. Responsibilities include building scalable AI systems, optimizing cost-performance trade-offs, and ensuring responsible AI practices. The position involves translating business problems into structured AI approaches, driving solution metrics, and collaborating across the full software development lifecycle. Requires expertise in agentic frameworks, RAG systems, and Azure/AI infrastructure. Position emphasizes ownership of initiatives with minimal supervision and contribution to internal IP and knowledge sharing.",
+    "descriptionSourceUrl": "https://in.linkedin.com/jobs/view/gen-ai-engineer-at-fractal-4486305331",
+    "fingerprint": "685ab8ca2921a1bd9ed72f05bd7caf6c48fa22aa2c134eed90965ce1edfa798a",
+    "keywords": [
+      "LangChain",
+      "LlamaIndex",
+      "vector databases",
+      "prompt engineering",
+      "Azure OpenAI",
+      "GPT-4",
+      "CrewAI",
+      "AutoGen",
+      "LangGraph",
+      "RAG systems",
+      "LLM observability",
+      "CI/CD pipelines"
+    ]
+  },
+  "linkedin-4486960878": {
+    "description": "We are seeking a Python AI Engineer to design, build, and deploy agentic AI systems and scalable workflows using LangGraph. Responsibilities include writing clean Python code, integrating AI agents into applications, and optionally applying data science techniques to train ML or deep learning models. The role requires strong Python proficiency, hands-on experience with agentic AI architectures and orchestration frameworks, and understanding of the AI lifecycle including prompt engineering and deployment. This position is located in Bangalore.",
+    "descriptionSourceUrl": "https://in.linkedin.com/jobs/view/python-ai-engineer-at-ascendion-4486960878",
+    "fingerprint": "a27ffc2e3ce980ecbcea749a0691891a5090aa3fbec62d9fc2f6daff2d0c1b0a",
+    "keywords": [
+      "Python AI Engineer",
+      "agentic AI architectures",
+      "LangGraph",
+      "AI lifecycle",
+      "prompt engineering",
+      "Python code",
+      "LLMs",
+      "multi-agent systems",
+      "AI workflows",
+      "AI agents",
+      "data science techniques",
+      "machine learning"
+    ]
+  },
   "linkedin-4488930495": {
     "description": "AI Engineer to develop AI-powered tools, plugins, and automation solutions for Autodesk Revit and AutoCAD. Role involves building intelligent systems that understand user instructions, interact with CAD/BIM models, automate engineering workflows, and integrate LLMs like OpenAI GPT. Responsibilities include developing custom plugins, building AI agents and chatbots, automating drafting and modeling processes, and creating APIs to connect Autodesk applications with AI platforms. Requires strong Python/C# skills, Autodesk API experience, and familiarity with LLM frameworks such as LangChain or LangGraph.",
     "descriptionSourceUrl": "https://in.linkedin.com/jobs/view/ai-engineer-at-nyei-4488930495",
@@ -515,6 +553,25 @@
       "hallucination risk"
     ]
   },
+  "linkedin-4493010042": {
+    "description": "As a Data Scientist specializing in Artificial Intelligence, leverage expertise in combining data analysis and business acumen to tackle cognitive computing challenges. Architect and deliver AI solutions using cutting-edge technologies with a strong focus on foundation models and large language models. Manage the full AI project lifecycle from research and prototyping to deployment in production environments. Create comprehensive cognitive solutions that process structured and unstructured data using advanced analytics, NLP, and ML methods. Collaborate with stakeholders to solve complex business problems using strong programming skills and proficiency in Python and AI frameworks. Optimize AI solutions utilizing expertise in NLP, Image Processing, Video Processing, Voice Processing, or Watson technologies.",
+    "descriptionSourceUrl": "https://in.linkedin.com/jobs/view/data-scientist-artificial-intelligence-at-ibm-4493010042",
+    "fingerprint": "ba11de2fccc96e0f023488a5eba95998276bae58f262375600bcc3c5c4e986dd",
+    "keywords": [
+      "Python",
+      "TensorFlow",
+      "PyTorch",
+      "Keras",
+      "Hugging Face",
+      "Natural Language Processing",
+      "Machine Learning",
+      "Artificial Intelligence",
+      "Foundation Models",
+      "Large Language Models",
+      "GitHub Copilot",
+      "Amazon Code Whisperer"
+    ]
+  },
   "linkedin-4493111330": {
     "description": "An LLM Model Developer role involving fine-tuning Large Language Models with focus on instruction tuning and domain adaptation. Position requires independent work as a subject matter expert, contributing to team discussions, providing solutions, and collaborating with cross-functional teams to integrate model improvements. Responsibilities include monitoring model performance, suggesting enhancements, documenting development processes, and sharing knowledge. The role is based at the Gurugram office.",
     "descriptionSourceUrl": "https://in.linkedin.com/jobs/view/llm-model-developer-at-accenture-services-pvt-ltd-4493111330",
@@ -571,6 +628,25 @@
       "RAG"
     ]
   },
+  "linkedin-4493408566": {
+    "description": "Join a global engineering team building AI agents and intelligent logistics applications for enterprise customers. Design and deliver cloud-native features in SAP Logistics Management using AI as a core method. Implement features using AI coding tools like GitHub Copilot, Cursor, or Joule as an integral part of the daily workflow. Write and maintain automated tests, review AI-generated code for quality, and contribute to reusable AI skill and prompt libraries. Write clear Jira stories and acceptance criteria to enable high-quality AI-assisted implementation. Experiment with emerging AI tools and share learnings to support the team's continuous improvement of AI adoption practices. Work hands-on with agentic AI initiatives and serve as a quality multiplier for the team.",
+    "descriptionSourceUrl": "https://in.linkedin.com/jobs/view/ai-application-engineer-associate-at-sap-4493408566",
+    "fingerprint": "c2d791ac824d33705112794e9368b857632e8f613ecde1ac9147f933539e17e2",
+    "keywords": [
+      "SAP Logistics Management",
+      "GitHub Copilot",
+      "Cursor",
+      "Joule",
+      "AI coding tools",
+      "cloud-native features",
+      "automated tests",
+      "release validation",
+      "system acceptance testing",
+      "AI-generated code",
+      "quality mindset",
+      "Jira stories"
+    ]
+  },
   "linkedin-4493662183": {
     "description": "This Software Engineer I position within Anthem CoE involves technical knowledge in Display Graphics applications for creating and integrating features. Responsibilities include software design and implementation of key display functionalities, new technology development via application development and graphics trade-off analysis, providing investigation support for integration issues, participating in design reviews, and mentoring junior team members. The role requires collaboration with stakeholders for technology incubation and contributing to display enhancements through prototypes and proof of concepts that lead to product roadmap insertions for additional revenue streams.",
     "descriptionSourceUrl": "https://in.linkedin.com/jobs/view/software-engr-i-at-honeywell-aerospace-4493662183",
@@ -621,6 +697,24 @@
       "cross-browser compatibility"
     ]
   },
+  "linkedin-4494030144": {
+    "description": "We are seeking an engineer to deliver full-stack features end-to-end using React/TypeScript, .NET, and SQL, from spec to production. The role involves running projects independently, acting as a technical consultant for customers on paid consulting projects, and taking on specialist work in AI and optimization, CAD, or hardware and IoT. Required qualifications include strong engineering judgment in design and data modeling, fluent English, the ability to work independently, and a track record of building things. Preferred skills include AI/ML, CAD, hardware/IoT, fabrication/manufacturing experience, and consulting background. This fully remote position requires a few hours of overlap with the US workday in IST evenings/mornings. Compensation ranges from ₹8–25 LPA depending on experience.",
+    "descriptionSourceUrl": "https://in.linkedin.com/jobs/view/software-engineer-full-stack-ai-at-stoneapp-by-stone-grid-4494030144",
+    "fingerprint": "2797a385489807c60c728b80300d1eae78091d63f5dfd1eb1dc6fb8a5881f948",
+    "keywords": [
+      "React",
+      "TypeScript",
+      ".NET",
+      "SQL",
+      "AI and optimization",
+      "CAD",
+      "hardware and IoT",
+      "engineering judgment",
+      "data modeling",
+      "spoken and written English",
+      "consulting projects"
+    ]
+  },
   "linkedin-4494320602": {
     "description": "Work side-by-side with early enterprise customers in Bengaluru to learn their workflows and build, ship, and connect AI-powered apps and agents on the Isomorph platform to their existing systems. Own the full lifecycle from initial conversation to production, troubleshoot integrations with ERPs, accounting, HR systems, and APIs, and translate field insights into product improvements. Leverage AI coding agents to deliver working applications rapidly, acting as the primary liaison between business teams and IT to ensure secure, governed deployment.",
     "descriptionSourceUrl": "https://in.linkedin.com/jobs/view/forward-deployed-engineer-at-isomorph-ai-4494320602",
@@ -638,6 +732,94 @@
       "AI coding agents",
       "Bengaluru",
       "forward deployed engineering"
+    ]
+  },
+  "linkedin-4494327801": {
+    "description": "Join R&D team for Batch 2026/2027 hiring. Role requires hands-on AI/ML project experience. Candidates should have academic specialization or proven skills via internships, hackathons, or certifications. Focus on building ideas into live features.",
+    "descriptionSourceUrl": "https://in.linkedin.com/jobs/view/artificial-intelligence-engineer-at-loyalty-juggernaut-4494327801",
+    "fingerprint": "0c79a46deaebdbfd12ec2adc8065d7a02f16431be43e9e760d8e620fc17b6e5c",
+    "keywords": [
+      "AI/ML Project Experience",
+      "hands-on AI/ML",
+      "internships",
+      "hackathons",
+      "certifications",
+      "builders",
+      "turn ideas into live features"
+    ]
+  },
+  "linkedin-4494368695": {
+    "description": "Entry-level remote role assisting with Gen AI solution design, vector search, retrieval workflows, and agent development using LangGraph or similar frameworks. Responsibilities include experimenting with open-source LLMs, prompt engineering, performance evaluation, and troubleshooting workflows under senior guidance. Ideal candidates have strong AI fundamentals, RAG or LLM project experience, and Python proficiency.",
+    "descriptionSourceUrl": "https://in.linkedin.com/jobs/view/generative-ai-engineer-at-raabyt-4494368695",
+    "fingerprint": "415f5435156df53b134abb0270b67a898de2fde751c84f9a42d6fbf27d615a2f",
+    "keywords": [
+      "Gen AI Engineer",
+      "RAG pipelines",
+      "agent workflows",
+      "vector search",
+      "embeddings",
+      "prompt engineering",
+      "LangGraph",
+      "open-source LLMs",
+      "benchmarking reports",
+      "Python",
+      "ML frameworks"
+    ]
+  },
+  "linkedin-4494794155": {
+    "description": "Join an AI-powered recruitment team to build and improve the Reena platform for enterprise clients. Responsibilities include collaborating with product and client teams to solve business problems, choosing optimal architecture, and building features using AI coding tools across the full stack (.NET, React, Python, Azure). Critical evaluation of AI-generated code for security and maintainability, proper testing, monitoring post-release improvements, and independent work in a remote setting are essential. The role requires turning complex business needs into simple, working solutions while maintaining good engineering habits.",
+    "descriptionSourceUrl": "https://in.linkedin.com/jobs/view/full-stack-software-engineer-ai-first-at-recruitable-4494794155",
+    "fingerprint": "4d32ef4b881d3d81caa7f4d3c6554b3cae4fe9bbfca0446a5f33c5df57b21755",
+    "keywords": [
+      "Claude Code",
+      "Cursor",
+      "GitHub Copilot",
+      ".NET",
+      "React",
+      "Python",
+      "Microsoft Azure",
+      "AI coding tools",
+      "code review",
+      "architecture",
+      "frontend",
+      "backend"
+    ]
+  },
+  "linkedin-4494798268": {
+    "description": "An AI Product Engineer independently turns business problems into working internal tools using AI. They will build complete applications including interfaces, backend services, databases, and integrations. Key responsibilities involve using AI coding assistants to accelerate development and debugging, deciding when to use LLMs versus conventional code, testing accuracy against real examples, and handling exceptions. They will deploy and maintain applications with access controls and logging for sensitive data, and document tools for future maintenance. The role requires working directly with business teams to identify where AI can help and developing workflows for document information extraction, candidate assessment, and financial record matching.",
+    "descriptionSourceUrl": "https://in.linkedin.com/jobs/view/ai-product-engineer-at-matchpoint-4494798268",
+    "fingerprint": "ddd82f21ceab04baf8748b80c9d159680252987e474330264df03e6fa4ac13ef",
+    "keywords": [
+      "Python",
+      "TypeScript/JavaScript",
+      "AI coding tools",
+      "Claude Code",
+      "Codex",
+      "Cursor",
+      "LLMs",
+      "structured outputs",
+      "tool calling",
+      "APIs",
+      "SQL databases",
+      "authentication"
+    ]
+  },
+  "linkedin-4494917042": {
+    "description": "Senior analytics engineer role building and maintaining scalable data infrastructure, predictive models, and automated pipelines. Responsibilities include diagnosing root causes, developing AI-powered solutions to reduce manual intervention, and delivering granular insights to stakeholders. Requires 1+ years applied experience with advanced problem-solving, strong Python and SQL skills, baseline AI fluency including LLM usage, and the ability to work independently on scoped problems.",
+    "descriptionSourceUrl": "https://in.linkedin.com/jobs/view/artificial-intelligence-engineer-at-great-learning-4494917042",
+    "fingerprint": "4b6dd124d2b00c9203559cd5d49a9f3246e612254634a85509ab5b2fe23a77c6",
+    "keywords": [
+      "analytics",
+      "AI solutions",
+      "predictive models",
+      "automated pipelines",
+      "data infrastructure",
+      "data quality checks",
+      "Python",
+      "SQL",
+      "LLMs",
+      "operational workflows",
+      "root cause"
     ]
   }
 }
