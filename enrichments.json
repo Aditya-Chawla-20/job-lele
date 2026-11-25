@@ -94,6 +94,25 @@
       "access controls"
     ]
   },
+  "linkedin-4477282275": {
+    "description": "Experienced AI developer needed to build enterprise AI solutions across SAP and other platforms. Responsible for designing and implementing RAG architectures, vector search, and AI orchestration frameworks using LangChain, LangGraph, and LlamaIndex. Will build scalable backend services, APIs, and microservices with Python, Node.js, or Java, integrating AI with SAP systems and ERP data. Requires hands-on experience with LLMs, Agentic AI, Prompt Engineering, and Function Calling. Must have exposure to Cloud/DevOps tools (Azure/AWS/GCP, Docker, Kubernetes, CI/CD) and Vector Databases (Pinecone, Chroma, Weaviate, Qdrant). Ensures security, scalability, observability, and compliance of AI solutions. Collaborates with stakeholders to deliver end-to-end AI use cases and implements responsible AI practices and governance controls.",
+    "descriptionSourceUrl": "https://in.linkedin.com/jobs/view/ai-application-engineer-at-infosys-4477282275",
+    "fingerprint": "3d3c1dacdb2782dcf66b927a004b5e6aa766de6aeeb22be021c79866b3769cb0",
+    "keywords": [
+      "Python",
+      "JavaScript/TypeScript",
+      "Node.js",
+      "Java",
+      "LLMs",
+      "GPT",
+      "Claude",
+      "Gemini",
+      "Llama",
+      "Agentic AI",
+      "RAG",
+      "Prompt Engineering"
+    ]
+  },
   "linkedin-4486136900": {
     "description": "Hands-on role building and sustaining an AI systems platform for mission-critical edge devices. Implement containerless OCI-based packaging and runtime, contribute to on-device orchestration and OTA lifecycle management, optimize inference and resource usage on constrained CPU/GPU/NPU hardware, and develop cross-compilation and CI/CD pipelines for multi-architecture builds. Integrate device fleet with cloud control plane via REST/gRPC/OpenAPI/MQTT, diagnose defects on real hardware, and leverage agentic AI coding tools. Collaborate in a distributed team across NA, Europe, and India using Linux and Git-based workflows.",
     "descriptionSourceUrl": "https://in.linkedin.com/jobs/view/associate-engineer-edge-ai-at-aptiv-4486136900",
@@ -552,6 +571,18 @@
       "RAG"
     ]
   },
+  "linkedin-4493662183": {
+    "description": "This Software Engineer I position within Anthem CoE involves technical knowledge in Display Graphics applications for creating and integrating features. Responsibilities include software design and implementation of key display functionalities, new technology development via application development and graphics trade-off analysis, providing investigation support for integration issues, participating in design reviews, and mentoring junior team members. The role requires collaboration with stakeholders for technology incubation and contributing to display enhancements through prototypes and proof of concepts that lead to product roadmap insertions for additional revenue streams.",
+    "descriptionSourceUrl": "https://in.linkedin.com/jobs/view/software-engr-i-at-honeywell-aerospace-4493662183",
+    "fingerprint": "5881a29aab6342a17ba49d4828875fd28968b982397b47386e5f9433d8a2ce67",
+    "keywords": [
+      "SW architecture and design",
+      "Object oriented development experience",
+      "Graphical Tools experience is preferred",
+      "Knowledge of SCADE",
+      "Knowledge of Model Based Development"
+    ]
+  },
   "linkedin-4493703182": {
     "description": "Motivated Junior Software Engineer position in Bengaluru for 1-2 year experienced candidates. Role involves developing, testing, and maintaining software applications while writing clean, efficient code. Responsibilities include debugging technical issues, collaborating with cross-functional teams, participating in code reviews, and supporting API integrations and database tasks. Required qualifications include a Bachelor's degree in Computer Science or related field, proficiency in Java, Python, C#, or JavaScript, understanding of object-oriented programming and data structures, basic database and SQL knowledge, familiarity with SDLC, and version control systems like Git. Strong analytical and problem-solving skills along with good communication abilities are essential.",
     "descriptionSourceUrl": "https://in.linkedin.com/jobs/view/junior-software-engineer-at-arise-techglobal-4493703182",
@@ -588,6 +619,25 @@
       "version control",
       "responsive design",
       "cross-browser compatibility"
+    ]
+  },
+  "linkedin-4494320602": {
+    "description": "Work side-by-side with early enterprise customers in Bengaluru to learn their workflows and build, ship, and connect AI-powered apps and agents on the Isomorph platform to their existing systems. Own the full lifecycle from initial conversation to production, troubleshoot integrations with ERPs, accounting, HR systems, and APIs, and translate field insights into product improvements. Leverage AI coding agents to deliver working applications rapidly, acting as the primary liaison between business teams and IT to ensure secure, governed deployment.",
+    "descriptionSourceUrl": "https://in.linkedin.com/jobs/view/forward-deployed-engineer-at-isomorph-ai-4494320602",
+    "fingerprint": "b32769829862eccebf0da6beb7e55e790be58c0677ab5a6b4cab20f52f5acf08",
+    "keywords": [
+      "python",
+      "agents",
+      "typescript",
+      "communication",
+      "ERP",
+      "accounting",
+      "HR systems",
+      "databases",
+      "APIs",
+      "AI coding agents",
+      "Bengaluru",
+      "forward deployed engineering"
     ]
   }
 }
