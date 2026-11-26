@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import JobDialog from "./JobDialog";
 import { track } from "@vercel/analytics";
 import {
@@ -11,12 +11,17 @@ import {
   type JobView,
 } from "../lib/jobs";
 
+const PAGE_SIZE = 18;
+
 export default function JobBoard({ jobs }: { jobs: JobView[] }) {
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState("All");
   const [recency, setRecency] = useState("all");
   const [location, setLocation] = useState("All");
   const [experience, setExperience] = useState("All");
+  const [moreFiltersOpen, setMoreFiltersOpen] = useState(false);
+  const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
+  const loadMoreRef = useRef<HTMLButtonElement>(null);
   const [selection, setSelection] = useState<{
     job: JobView;
     view: "details" | "keywords";
@@ -36,12 +41,29 @@ export default function JobBoard({ jobs }: { jobs: JobView[] }) {
     });
   }, [jobs, query, category, recency, location, experience]);
 
+  const moreFiltersCount = Number(recency !== "all") + Number(location !== "All") + Number(experience !== "All");
+
   const hasFilters =
     query.trim() !== "" ||
     category !== "All" ||
     recency !== "all" ||
     location !== "All" ||
     experience !== "All";
+
+  const canLoadMore = !hasFilters && visibleCount < filtered.length;
+  const visible = hasFilters ? filtered : filtered.slice(0, visibleCount);
+
+  useEffect(() => {
+    const button = loadMoreRef.current;
+    if (!canLoadMore || !button || !("IntersectionObserver" in window)) return;
+    const observer = new IntersectionObserver(([entry]) => {
+      if (!entry.isIntersecting) return;
+      observer.disconnect();
+      setVisibleCount((count) => count + PAGE_SIZE);
+    }, { rootMargin: "200px 0px" });
+    observer.observe(button);
+    return () => observer.disconnect();
+  }, [canLoadMore, visibleCount]);
 
   function clearFilters() {
     setQuery("");
@@ -97,7 +119,20 @@ export default function JobBoard({ jobs }: { jobs: JobView[] }) {
           </div>
         </div>
 
-        <div className="filter-row">
+        <button
+          type="button"
+          className="button more-filters-toggle"
+          aria-expanded={moreFiltersOpen}
+          aria-controls="job-more-filters"
+          onClick={() => setMoreFiltersOpen((open) => !open)}
+        >
+          {moreFiltersOpen ? "Fewer filters" : "More filters"}
+          {moreFiltersCount > 0 ? ` (${moreFiltersCount} active)` : ""}
+          <svg viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <path d="m5 8 5 5 5-5" />
+          </svg>
+        </button>
+        <div id="job-more-filters" className="filter-row" data-expanded={moreFiltersOpen}>
           <label className="select-wrap">
             <span className="filter-label">Posted</span>
             <select value={recency} onChange={(event) => setRecency(event.target.value)}>
@@ -150,50 +185,62 @@ export default function JobBoard({ jobs }: { jobs: JobView[] }) {
           <p>Try clearing a filter, or check back later for new roles.</p>
         </div>
       ) : (
-        <ul className="job-list">
-          {filtered.map((job) => (
-            <li key={job.id} className="job-card">
-              <h2 className="job-title">{job.title}</h2>
-              <p className="job-company">{job.company}</p>
-              <ul className="job-meta job-facts" aria-label="Job information">
-                <li>{job.location}</li>
-                <li>{job.experience}</li>
-                <li><time dateTime={job.postedDate}>{job.postedLabel}</time></li>
-                {job.salary && <li>{job.salary}</li>}
-              </ul>
-              <span className="job-category">{job.category}</span>
-              {job.description?.trim() && <p className="job-preview">{job.description.trim()}</p>}
-              <div className="job-actions">
-                <button
-                  type="button"
-                  className="button"
-                  aria-haspopup="dialog"
-                  onClick={(event) => setSelection({ job, view: "details", trigger: event.currentTarget })}
-                >
-                  View Details
-                </button>
-                <button
-                  type="button"
-                  className="button"
-                  aria-haspopup="dialog"
-                  onClick={(event) => setSelection({ job, view: "keywords", trigger: event.currentTarget })}
-                >
-                  Keywords
-                </button>
-                <a
-                  className="button button-primary"
-                  href={job.applyUrl}
-                  aria-label={`Apply on ${job.source}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => track("job_apply_click", { job: job.title, company: job.company })}
-                >
-                  Apply
-                </a>
-              </div>
-            </li>
-          ))}
-        </ul>
+        <>
+          <ul className="job-list">
+            {visible.map((job) => (
+              <li key={job.id} className="job-card">
+                <h2 className="job-title">{job.title}</h2>
+                <p className="job-company">{job.company}</p>
+                <ul className="job-meta job-facts" aria-label="Job information">
+                  <li>{job.location}</li>
+                  <li>{job.experience}</li>
+                  <li><time dateTime={job.postedDate}>{job.postedLabel}</time></li>
+                  {job.salary && <li>{job.salary}</li>}
+                </ul>
+                <span className="job-category">{job.category}</span>
+                {job.description?.trim() && <p className="job-preview">{job.description.trim()}</p>}
+                <div className="job-actions">
+                  <button
+                    type="button"
+                    className="button"
+                    aria-haspopup="dialog"
+                    onClick={(event) => setSelection({ job, view: "details", trigger: event.currentTarget })}
+                  >
+                    View Details
+                  </button>
+                  <button
+                    type="button"
+                    className="button"
+                    aria-haspopup="dialog"
+                    onClick={(event) => setSelection({ job, view: "keywords", trigger: event.currentTarget })}
+                  >
+                    Keywords
+                  </button>
+                  <a
+                    className="button button-primary"
+                    href={job.applyUrl}
+                    aria-label={`Apply on ${job.source}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => track("job_apply_click", { job: job.title, company: job.company })}
+                  >
+                    Apply
+                  </a>
+                </div>
+              </li>
+            ))}
+          </ul>
+          {canLoadMore && (
+            <button
+              ref={loadMoreRef}
+              type="button"
+              className="button load-more-jobs"
+              onClick={() => setVisibleCount((count) => count + PAGE_SIZE)}
+            >
+              Load more jobs
+            </button>
+          )}
+        </>
       )}
       {selection && (
         <JobDialog

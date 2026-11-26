@@ -1,11 +1,28 @@
 "use client";
 
 import { useState } from "react";
+import { track } from "@vercel/analytics";
 
 const MAC_CMD =
   "curl -fSL https://guptai.vercel.app/install.sh -o install-guptai-mac.sh && bash install-guptai-mac.sh";
 const WIN_CMD =
   'Invoke-WebRequest -Uri https://guptai.vercel.app/install.ps1 -OutFile "$env:TEMP\\guptai-install.ps1" -UseBasicParsing; if ($?) { powershell -NoProfile -ExecutionPolicy Bypass -File "$env:TEMP\\guptai-install.ps1" }';
+
+const DEMO_URL = "https://guptai.vercel.app/#demo";
+
+export function GuptAIQuickLink() {
+  return (
+    <a
+      className="button mobile-guptai-link"
+      href={DEMO_URL}
+      target="_blank"
+      rel="noopener noreferrer"
+      onClick={() => track("guptai_demo_click", { placement: "mobile_top_bar" })}
+    >
+      GuptAI demo <span aria-hidden="true">↗</span>
+    </a>
+  );
+}
 
 type Os = "mac" | "windows";
 
@@ -39,7 +56,7 @@ export default function GuptAIInstall() {
       <p className="guptai-desc">
         Invisible on screen share, Live Answers of the Questions Asked
       </p>
-      <a className="button button-primary guide-btn" href="https://guptai.vercel.app" target="_blank" rel="noopener noreferrer">
+      <a className="button button-primary guide-btn" href={DEMO_URL} target="_blank" rel="noopener noreferrer" onClick={() => track("guptai_demo_click", { placement: "right_sidebar" })}>
         See how Gupt-AI works
         <svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
           <path d="M5 15 15 5M7 5h8v8" />

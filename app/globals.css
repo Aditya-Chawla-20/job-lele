@@ -363,7 +363,7 @@ a { color: inherit; text-underline-offset: .2em; }
 
 @media (max-width: 850px) {
   .container { width: calc(100% - 36px); }
-  .board-layout { grid-template-columns: minmax(0, 1fr); gap: 18px; }
+  .board-layout { grid-template-columns: minmax(0, 1fr) minmax(225px, 30%); gap: 16px; }
 }
 
 @media (max-width: 540px) {
@@ -377,4 +377,76 @@ a { color: inherit; text-underline-offset: .2em; }
   .dialog-heading { padding: 17px 17px 0; }
   .dialog-body { padding: 0 17px 17px; }
   .button, .pill { min-height: 42px; }
+}
+
+.more-filters-toggle,
+.header-actions > .mobile-guptai-link { display: none; }
+
+.guptai-section {
+  position: sticky;
+  top: 16px;
+  max-height: calc(100dvh - 32px);
+  overflow: auto;
+}
+
+.load-more-jobs { min-height: 44px; margin-top: 12px; }
+
+@media (max-width: 850px) {
+  .more-filters-toggle {
+    display: flex;
+    justify-content: space-between;
+    min-height: 44px;
+  }
+
+  .more-filters-toggle[aria-expanded="true"] svg { transform: rotate(180deg); }
+  .filter-row[data-expanded="false"] { display: none; }
+
+  .job-list .job-actions .button,
+  .job-dialog .button,
+  .pills .pill,
+  .clear-btn { min-height: 44px; }
+}
+
+@media (max-width: 719px) {
+  html { scroll-padding-top: 68px; }
+  .board-layout { grid-template-columns: minmax(0, 1fr); }
+  .board-layout > .guptai-section { display: none; }
+
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    padding-block: 6px;
+    background: var(--canvas);
+  }
+
+  .header-actions { gap: 8px; }
+  .header-actions > .mobile-guptai-link {
+    display: inline-flex;
+    min-height: 44px;
+    margin-inline-end: auto;
+    padding-inline: 10px;
+    font-size: .8125rem;
+    white-space: nowrap;
+  }
+
+  .header-actions > .theme-toggle { flex: 0 0 44px; }
+  .header-actions > .x-link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 540px) {
+  .filters { gap: 10px; }
+  .job-preview { display: none; }
+  .job-actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    margin-top: 12px;
+  }
+  .job-actions .button-primary { grid-column: 1 / -1; }
 }
