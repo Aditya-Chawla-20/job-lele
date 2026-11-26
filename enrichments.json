@@ -94,6 +94,23 @@
       "access controls"
     ]
   },
+  "linkedin-4468140768": {
+    "description": "We are seeking senior ML/NLP engineers to join a team building AI-powered analytics for complex analytical workloads. Responsibilities include building agentic pipelines, designing evaluation frameworks for query processing, defining product roadmap with founders, and shaping engineering culture. Requires strong analytical skills with background in search/retrieval, LLMs, and evaluation pipelines. Bachelor's or Master's in Computer Science required. Experience in fast-paced startup environments is highly desirable.",
+    "descriptionSourceUrl": "https://in.linkedin.com/jobs/view/machine-learning-engineer-at-wisdomai-4468140768",
+    "fingerprint": "2f2fe20d83bbc857e775c12a198abde77c78df060f392d6fcd03dda28a05eb0d",
+    "keywords": [
+      "LLM based code-generation",
+      "document understanding",
+      "context synthesis",
+      "LLM based agents",
+      "agentic pipelines",
+      "evaluation framework",
+      "query processing engine",
+      "search/retrieval",
+      "Bachelor's or Master's degree in Computer Science",
+      "startup/fast paced teams"
+    ]
+  },
   "linkedin-4477282275": {
     "description": "Experienced AI developer needed to build enterprise AI solutions across SAP and other platforms. Responsible for designing and implementing RAG architectures, vector search, and AI orchestration frameworks using LangChain, LangGraph, and LlamaIndex. Will build scalable backend services, APIs, and microservices with Python, Node.js, or Java, integrating AI with SAP systems and ERP data. Requires hands-on experience with LLMs, Agentic AI, Prompt Engineering, and Function Calling. Must have exposure to Cloud/DevOps tools (Azure/AWS/GCP, Docker, Kubernetes, CI/CD) and Vector Databases (Pinecone, Chroma, Weaviate, Qdrant). Ensures security, scalability, observability, and compliance of AI solutions. Collaborates with stakeholders to deliver end-to-end AI use cases and implements responsible AI practices and governance controls.",
     "descriptionSourceUrl": "https://in.linkedin.com/jobs/view/ai-application-engineer-at-infosys-4477282275",
@@ -200,42 +217,6 @@
       "REST APIs",
       "JSON",
       "Git"
-    ]
-  },
-  "linkedin-4491102944": {
-    "description": "A 12-month paid apprenticeship for individuals with a Bachelor's or Master's in Computer Science or IT Engineering. Responsibilities include writing code in languages like Java, JavaScript, .NET, or Python, working in agile teams on API specs and code reviews, designing customer-facing applications for web and mobile channels, and developing data collection systems. Qualifications require graduation in a technical discipline. The role offers flexible hybrid work arrangements.",
-    "descriptionSourceUrl": "https://in.linkedin.com/jobs/view/apprentice-at-american-express-4491102944",
-    "fingerprint": "93e549693821b9bd0a8e145f2e00a151d9c6eafae002060b18054243e6bc42f0",
-    "keywords": [
-      "Java",
-      "JavaScript",
-      ".NET",
-      "Python",
-      "API specs",
-      "code reviews",
-      "agile team",
-      "customer-facing applications",
-      "native iOS",
-      "Android"
-    ]
-  },
-  "linkedin-4491459862": {
-    "description": "Litmus is seeking full-time engineers for a remote worldwide role across infrastructure, product engineering, and AI research, open to all experience levels including new graduates (no visa sponsorship provided). Depending on focus, responsibilities include architecting reliable platform infrastructure for high-throughput workloads, delivering end-to-end product features, designing RL environments and evaluation rubrics, building experiment orchestration systems, and developing meta-optimization pipelines. Applicants must be proficient in Python, JavaScript/TypeScript, or Node.js, and demonstrate experience building and operating production systems or working within early-stage teams. Strong problem-solving, rapid execution, and independent judgment are essential. Relevant experience in distributed systems, AWS/GCP, data pipelines, ML infrastructure, or reinforcement learning represents a strong signal.",
-    "descriptionSourceUrl": "https://in.linkedin.com/jobs/view/mts-at-litmus-4491459862",
-    "fingerprint": "e7f5a04ea87e6073dd1b4b502466923f669ed6cc717dda266a534cf9c8dc8933",
-    "keywords": [
-      "Python",
-      "JavaScript/TypeScript",
-      "Node.js",
-      "distributed systems",
-      "cloud infrastructure",
-      "reinforcement learning",
-      "LLM fine-tuning",
-      "post-training",
-      "serverless architectures",
-      "AWS/GCP",
-      "experiment orchestration",
-      "data pipelines"
     ]
   },
   "linkedin-4491601604": {
@@ -645,6 +626,24 @@
       "AI-generated code",
       "quality mindset",
       "Jira stories"
+    ]
+  },
+  "linkedin-4493437584": {
+    "description": "Software Engineer AI role based in Pune focused on evolving infrastructure and deployment pipelines using cutting-edge technology. Responsibilities include designing and delivering scalable, secure software solutions using Python, API design, automated testing, Git/CI/CD, and cloud-native delivery. The role involves practical LLM/Generative AI engineering including prompt design, RAG, grounding, structured outputs, model evaluation, and mitigating hallucination and safety risks. Requires converting ambiguous real-world problems into measurable solutions with clear stakeholder communication and production ownership. Collaboration includes cross-functional teamwork, code reviews, and contributing to reusable engineering standards. Emphasis on secure coding practices, unit testing, and staying current with industry technology trends.",
+    "descriptionSourceUrl": "https://in.linkedin.com/jobs/view/software-engineer-ai-at-barclays-4493437584",
+    "fingerprint": "089413df726e6b756d0a51d6df488029698e659598852db1ec32e06acea51cb9",
+    "keywords": [
+      "Python",
+      "automated testing",
+      "Git/CI/CD",
+      "cloud-native delivery",
+      "prompt design",
+      "retrieval-augmented generation",
+      "grounding",
+      "structured outputs",
+      "model evaluation",
+      "secure coding",
+      "observability"
     ]
   },
   "linkedin-4493662183": {
