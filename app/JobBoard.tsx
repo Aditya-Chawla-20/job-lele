@@ -1,6 +1,6 @@
 "use client";
 
-import { Fragment, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import JobDialog from "./JobDialog";
 import { track } from "@vercel/analytics";
 import {
@@ -11,6 +11,8 @@ import {
   type JobView,
 } from "../lib/jobs";
 
+const PAGE_SIZE = 18;
+
 export default function JobBoard({ jobs }: { jobs: JobView[] }) {
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState("All");
@@ -18,6 +20,8 @@ export default function JobBoard({ jobs }: { jobs: JobView[] }) {
   const [location, setLocation] = useState("All");
   const [experience, setExperience] = useState("All");
   const [moreFiltersOpen, setMoreFiltersOpen] = useState(false);
+  const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
+  const loadMoreRef = useRef<HTMLButtonElement>(null);
   const [selection, setSelection] = useState<{
     job: JobView;
     view: "details" | "keywords";
@@ -45,6 +49,21 @@ export default function JobBoard({ jobs }: { jobs: JobView[] }) {
     recency !== "all" ||
     location !== "All" ||
     experience !== "All";
+
+  const canLoadMore = !hasFilters && visibleCount < filtered.length;
+  const visible = hasFilters ? filtered : filtered.slice(0, visibleCount);
+
+  useEffect(() => {
+    const button = loadMoreRef.current;
+    if (!canLoadMore || !button || !("IntersectionObserver" in window)) return;
+    const observer = new IntersectionObserver(([entry]) => {
+      if (!entry.isIntersecting) return;
+      observer.disconnect();
+      setVisibleCount((count) => count + PAGE_SIZE);
+    }, { rootMargin: "200px 0px" });
+    observer.observe(button);
+    return () => observer.disconnect();
+  }, [canLoadMore, visibleCount]);
 
   function clearFilters() {
     setQuery("");
@@ -166,10 +185,10 @@ export default function JobBoard({ jobs }: { jobs: JobView[] }) {
           <p>Try clearing a filter, or check back later for new roles.</p>
         </div>
       ) : (
-        <ul className="job-list">
-          {filtered.map((job, index) => (
-            <Fragment key={job.id}>
-              <li className="job-card">
+        <>
+          <ul className="job-list">
+            {visible.map((job) => (
+              <li key={job.id} className="job-card">
                 <h2 className="job-title">{job.title}</h2>
                 <p className="job-company">{job.company}</p>
                 <ul className="job-meta job-facts" aria-label="Job information">
@@ -209,24 +228,19 @@ export default function JobBoard({ jobs }: { jobs: JobView[] }) {
                   </a>
                 </div>
               </li>
-              {index === Math.min(3, filtered.length) - 1 && (
-                <li className="mobile-guptai">
-                  <aside aria-label="GuptAI">
-                    <p>Interview coming up?</p>
-                    <a
-                      href="https://guptai.vercel.app/#demo"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={() => track("guptai_demo_click", { placement: "mobile_job_list" })}
-                    >
-                      See GuptAI in action <span aria-hidden="true">↗</span>
-                    </a>
-                  </aside>
-                </li>
-              )}
-            </Fragment>
-          ))}
-        </ul>
+            ))}
+          </ul>
+          {canLoadMore && (
+            <button
+              ref={loadMoreRef}
+              type="button"
+              className="button load-more-jobs"
+              onClick={() => setVisibleCount((count) => count + PAGE_SIZE)}
+            >
+              Load more jobs
+            </button>
+          )}
+        </>
       )}
       {selection && (
         <JobDialog
