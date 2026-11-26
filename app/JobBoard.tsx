@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { Fragment, useMemo, useState } from "react";
 import JobDialog from "./JobDialog";
 import { track } from "@vercel/analytics";
 import {
@@ -17,6 +17,7 @@ export default function JobBoard({ jobs }: { jobs: JobView[] }) {
   const [recency, setRecency] = useState("all");
   const [location, setLocation] = useState("All");
   const [experience, setExperience] = useState("All");
+  const [moreFiltersOpen, setMoreFiltersOpen] = useState(false);
   const [selection, setSelection] = useState<{
     job: JobView;
     view: "details" | "keywords";
@@ -35,6 +36,8 @@ export default function JobBoard({ jobs }: { jobs: JobView[] }) {
       return true;
     });
   }, [jobs, query, category, recency, location, experience]);
+
+  const moreFiltersCount = Number(recency !== "all") + Number(location !== "All") + Number(experience !== "All");
 
   const hasFilters =
     query.trim() !== "" ||
@@ -97,7 +100,20 @@ export default function JobBoard({ jobs }: { jobs: JobView[] }) {
           </div>
         </div>
 
-        <div className="filter-row">
+        <button
+          type="button"
+          className="button more-filters-toggle"
+          aria-expanded={moreFiltersOpen}
+          aria-controls="job-more-filters"
+          onClick={() => setMoreFiltersOpen((open) => !open)}
+        >
+          {moreFiltersOpen ? "Fewer filters" : "More filters"}
+          {moreFiltersCount > 0 ? ` (${moreFiltersCount} active)` : ""}
+          <svg viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <path d="m5 8 5 5 5-5" />
+          </svg>
+        </button>
+        <div id="job-more-filters" className="filter-row" data-expanded={moreFiltersOpen}>
           <label className="select-wrap">
             <span className="filter-label">Posted</span>
             <select value={recency} onChange={(event) => setRecency(event.target.value)}>
@@ -151,47 +167,64 @@ export default function JobBoard({ jobs }: { jobs: JobView[] }) {
         </div>
       ) : (
         <ul className="job-list">
-          {filtered.map((job) => (
-            <li key={job.id} className="job-card">
-              <h2 className="job-title">{job.title}</h2>
-              <p className="job-company">{job.company}</p>
-              <ul className="job-meta job-facts" aria-label="Job information">
-                <li>{job.location}</li>
-                <li>{job.experience}</li>
-                <li><time dateTime={job.postedDate}>{job.postedLabel}</time></li>
-                {job.salary && <li>{job.salary}</li>}
-              </ul>
-              <span className="job-category">{job.category}</span>
-              {job.description?.trim() && <p className="job-preview">{job.description.trim()}</p>}
-              <div className="job-actions">
-                <button
-                  type="button"
-                  className="button"
-                  aria-haspopup="dialog"
-                  onClick={(event) => setSelection({ job, view: "details", trigger: event.currentTarget })}
-                >
-                  View Details
-                </button>
-                <button
-                  type="button"
-                  className="button"
-                  aria-haspopup="dialog"
-                  onClick={(event) => setSelection({ job, view: "keywords", trigger: event.currentTarget })}
-                >
-                  Keywords
-                </button>
-                <a
-                  className="button button-primary"
-                  href={job.applyUrl}
-                  aria-label={`Apply on ${job.source}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => track("job_apply_click", { job: job.title, company: job.company })}
-                >
-                  Apply
-                </a>
-              </div>
-            </li>
+          {filtered.map((job, index) => (
+            <Fragment key={job.id}>
+              <li className="job-card">
+                <h2 className="job-title">{job.title}</h2>
+                <p className="job-company">{job.company}</p>
+                <ul className="job-meta job-facts" aria-label="Job information">
+                  <li>{job.location}</li>
+                  <li>{job.experience}</li>
+                  <li><time dateTime={job.postedDate}>{job.postedLabel}</time></li>
+                  {job.salary && <li>{job.salary}</li>}
+                </ul>
+                <span className="job-category">{job.category}</span>
+                {job.description?.trim() && <p className="job-preview">{job.description.trim()}</p>}
+                <div className="job-actions">
+                  <button
+                    type="button"
+                    className="button"
+                    aria-haspopup="dialog"
+                    onClick={(event) => setSelection({ job, view: "details", trigger: event.currentTarget })}
+                  >
+                    View Details
+                  </button>
+                  <button
+                    type="button"
+                    className="button"
+                    aria-haspopup="dialog"
+                    onClick={(event) => setSelection({ job, view: "keywords", trigger: event.currentTarget })}
+                  >
+                    Keywords
+                  </button>
+                  <a
+                    className="button button-primary"
+                    href={job.applyUrl}
+                    aria-label={`Apply on ${job.source}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => track("job_apply_click", { job: job.title, company: job.company })}
+                  >
+                    Apply
+                  </a>
+                </div>
+              </li>
+              {index === Math.min(3, filtered.length) - 1 && (
+                <li className="mobile-guptai">
+                  <aside aria-label="GuptAI">
+                    <p>Interview coming up?</p>
+                    <a
+                      href="https://guptai.vercel.app/#demo"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => track("guptai_demo_click", { placement: "mobile_job_list" })}
+                    >
+                      See GuptAI in action <span aria-hidden="true">↗</span>
+                    </a>
+                  </aside>
+                </li>
+              )}
+            </Fragment>
           ))}
         </ul>
       )}
