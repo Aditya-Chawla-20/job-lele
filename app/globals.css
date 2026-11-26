@@ -380,7 +380,7 @@ a { color: inherit; text-underline-offset: .2em; }
 }
 
 .more-filters-toggle,
-.mobile-guptai-bar { display: none; }
+.header-actions > .mobile-guptai-link { display: none; }
 
 .guptai-section {
   position: sticky;
@@ -408,22 +408,35 @@ a { color: inherit; text-underline-offset: .2em; }
 }
 
 @media (max-width: 719px) {
-  html { scroll-padding-top: 56px; }
+  html { scroll-padding-top: 68px; }
   .board-layout { grid-template-columns: minmax(0, 1fr); }
   .board-layout > .guptai-section { display: none; }
 
-  .mobile-guptai-bar {
+  .site-header {
     position: sticky;
     top: 0;
-    z-index: 1;
-    display: flex;
-    justify-content: flex-end;
-    padding-block: 4px;
-    margin-bottom: 8px;
+    z-index: 2;
+    padding-block: 6px;
     background: var(--canvas);
   }
 
-  .mobile-guptai-link { min-height: 44px; }
+  .header-actions { gap: 8px; }
+  .header-actions > .mobile-guptai-link {
+    display: inline-flex;
+    min-height: 44px;
+    margin-inline-end: auto;
+    padding-inline: 10px;
+    font-size: .8125rem;
+    white-space: nowrap;
+  }
+
+  .header-actions > .theme-toggle { flex: 0 0 44px; }
+  .header-actions > .x-link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    white-space: nowrap;
+  }
 }
 
 @media (max-width: 540px) {
