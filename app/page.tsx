@@ -1,6 +1,6 @@
 import jobsData from "../data/jobs.json";
 import JobBoard from "./JobBoard";
-import GuptAIInstall from "./GuptAIInstall";
+import GuptAIInstall, { GuptAIQuickLink } from "./GuptAIInstall";
 import { enrichJobsForDisplay } from "../lib/enrichments";
 import { toJobView, type Job } from "../lib/jobs";
 
@@ -17,9 +17,14 @@ export default async function Home() {
   const jobs = await enrichJobsForDisplay(recentJobs);
 
   return (
-    <div className="board-layout">
-      <JobBoard jobs={jobs} />
-      <GuptAIInstall />
-    </div>
+    <>
+      <div className="mobile-guptai-bar">
+        <GuptAIQuickLink />
+      </div>
+      <div className="board-layout">
+        <JobBoard jobs={jobs} />
+        <GuptAIInstall />
+      </div>
+    </>
   );
 }
