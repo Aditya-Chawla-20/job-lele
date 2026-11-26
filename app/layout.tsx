@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/react";
+import { GuptAIQuickLink } from "./GuptAIInstall";
 import ThemeToggle from "./ThemeToggle";
 import "./globals.css";
 
@@ -21,6 +22,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <header className="site-header">
           <div className="container header-actions">
+            <GuptAIQuickLink />
             <ThemeToggle />
             <a
               className="x-link"
