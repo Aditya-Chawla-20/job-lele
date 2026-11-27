@@ -71,3 +71,46 @@ vercel --prod
 Option 2, GitHub import: push this repo to GitHub, then import it at vercel.com/new. Vercel detects Next.js automatically. No build settings need changing.
 
 Note: `@vercel/analytics` only collects data on the deployed site, not on localhost.
+
+## Private analytics preview
+
+`/admin` reports board views, job-detail opens (the existing Details dialog),
+outbound Apply clicks, and anonymous session-to-click conversion for the last 30
+calendar days (IST). It breaks activity down by landing source, device, campaign
+and job. Apply links still open immediately; failed collection never blocks them.
+An Apply click does not confirm an application. Standard ad blockers, opted-out
+clients, and missing browser signals can make counts incomplete.
+
+To wire the preview:
+
+1. In a **separate Supabase Free preview project**, apply
+   `supabase/migrations/202611270001_joblele_analytics.sql` via the SQL Editor or CLI.
+   Enable the Data API for `public`; the migration limits these objects to
+   `service_role`, with RLS on the events table.
+2. In Auth, disable public signups and create one confirmed owner user. Use the
+   owner's email as login ID and a strong unique password set privately.
+3. Set the four variables in `.env.example` as **Preview only** (ideally restricted
+   to this branch). `JOBLELE_SUPABASE_SERVICE_KEY` is the secret key or legacy
+   `service_role` key; never paste it into chat or commit it. Use the owner's Auth
+   UUID for `JOBLELE_OWNER_USER_ID`. Preview deployments made before adding
+   variables need a new preview build. This implementation also disables itself in Vercel Production, even if variables are present.
+4. Open the preview `/admin`, sign in with that owner, and open the board in a
+   separate tab. Test Details and Apply. A non-owner must see only the sign-in
+   screen; `GET /api/admin/analytics` without a valid owner session returns 401.
+   Before setup the page explicitly reports unconfigured, and intake is a no-op.
+
+For campaigns, use an agreed short public tag (e.g.
+`/?utm_source=x&utm_campaign=ai_roles_nov`), never personal identifiers. Only
+a normalized campaign tag, broad source/device, generated event/session IDs and
+optional public job ID reach storage; no full referrer, raw user agent, IP, or
+contact information is stored in the analytics table. A session ID lives in the
+tab and rotates after 30 minutes of inactivity. Do Not Track and Global Privacy
+Control opt-outs are honored. A first-party public intake can still be polluted
+by scripted traffic; this is directional analytics, not an audited billing metric.
+
+The owner session is checked against Supabase on each protected request, and
+expires after at most an hour. The SQL report reads only the last 30 days,
+but does not silently delete data. If this becomes permanent, prune older
+rows according to an agreed retention policy and add platform rate limiting
+before enabling high-volume collection. No production setup, paid service,
+or background process is required by this preview.

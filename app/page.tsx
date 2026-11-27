@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/react";
 import jobsData from "../data/jobs.json";
 import JobBoard from "./JobBoard";
 import GuptAIInstall from "./GuptAIInstall";
@@ -20,6 +21,7 @@ export default async function Home() {
     <div className="board-layout">
       <JobBoard jobs={jobs} />
       <GuptAIInstall />
+      <Analytics />
     </div>
   );
 }

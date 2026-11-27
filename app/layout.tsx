@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Analytics } from "@vercel/analytics/react";
 import { GuptAIQuickLink } from "./GuptAIInstall";
 import ThemeToggle from "./ThemeToggle";
 import "./globals.css";
@@ -46,7 +45,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </p>
           </div>
         </footer>
-        <Analytics />
       </body>
     </html>
   );
