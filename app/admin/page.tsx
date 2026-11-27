@@ -5,7 +5,7 @@ import { isAnalyticsConfigured, readReport, signedInOwner } from "../../lib/anal
 import styles from "./page.module.css";
 
 export const dynamic = "force-dynamic";
-export const metadata: Metadata = { title: "Private analytics | Job Lele", robots: { index: false, follow: false }, referrer: "no-referrer" };
+export const metadata: Metadata = { title: "Private analytics | Job Lele", robots: { index: false, follow: false }, referrer: "same-origin" };
 const names = new Map(jobs.map((job) => [job.id, job.title + " · " + job.company]));
 const counts = new Intl.NumberFormat("en-IN");
 const percent = new Intl.NumberFormat("en-IN", { style: "percent", maximumFractionDigits: 1 });
