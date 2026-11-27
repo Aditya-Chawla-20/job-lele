@@ -1,12 +1,17 @@
+import { randomUUID } from "node:crypto";
 import type { Metadata } from "next";
+import { headers } from "next/headers";
+import { redirect } from "next/navigation";
 import jobs from "../../data/jobs.json";
 import type { AnalyticsReport, Breakdown } from "../../lib/analytics";
-import { isAnalyticsConfigured, readReport, signedInOwner } from "../../lib/analytics-server";
+import { isAnalyticsConfigured, readReport, signedInOwner, writeEvent } from "../../lib/analytics-server";
 import styles from "./page.module.css";
 
 export const dynamic = "force-dynamic";
 export const metadata: Metadata = { title: "Private analytics | Job Lele", robots: { index: false, follow: false }, referrer: "same-origin" };
 const names = new Map(jobs.map((job) => [job.id, job.title + " · " + job.company]));
+const testJob = "preview-test-job";
+names.set(testJob, "Preview test job (synthetic)");
 const counts = new Intl.NumberFormat("en-IN");
 const percent = new Intl.NumberFormat("en-IN", { style: "percent", maximumFractionDigits: 1 });
 
@@ -52,7 +57,24 @@ function Report({ report: r }: { report: AnalyticsReport }) {
   </>;
 }
 
-export default async function Admin({ searchParams }: { searchParams: Promise<{ error?: string }> }) {
+async function recordPreviewTest() {
+  "use server";
+  if (process.env.VERCEL_ENV !== "preview" || !await signedInOwner()) redirect("/admin");
+  const session_id = randomUUID();
+  const base = { session_id, source: "direct", campaign: "preview-smoke", device: "unknown" };
+  let status = "recorded";
+  try {
+    await writeEvent({ ...base, id: randomUUID(), kind: "board_view", job_id: null });
+    await writeEvent({ ...base, id: randomUUID(), kind: "detail_view", job_id: testJob });
+  } catch {
+    // No user, job, request payload, upstream details or credentials in logs.
+    console.warn("JobLele preview synthetic event write failed");
+    status = "failed";
+  }
+  redirect("/admin?test=" + status);
+}
+
+export default async function Admin({ searchParams }: { searchParams: Promise<{ error?: string; test?: string }> }) {
   const configured = isAnalyticsConfigured();
   const owner = configured && await signedInOwner();
   if (!owner) {
@@ -71,13 +93,25 @@ export default async function Admin({ searchParams }: { searchParams: Promise<{ 
       </>}
     </section>;
   }
+  const requestHeaders = await headers();
+  const optedOut = requestHeaders.get("dnt") === "1" || requestHeaders.get("sec-gpc") === "1";
+  const preview = process.env.VERCEL_ENV === "preview";
+  const test = (await searchParams).test;
   let report: AnalyticsReport | null = null;
-  try { report = await readReport(); } catch { /* Do not expose upstream details. */ }
+  try { report = await readReport(); } catch { console.warn("JobLele private analytics report unavailable"); }
   return <section className={styles.dashboard} aria-labelledby="analytics-title">
     <div className={styles.heading}>
       <div><p className={styles.note}>OWNER ONLY · LAST 30 DAYS (IST)</p><h2 id="analytics-title">Job Lele analytics</h2></div>
       <form method="post" action="/api/admin/logout"><button className="button" type="submit">Sign out</button></form>
     </div>
+    {optedOut && <p role="status" className={styles.note}>This browser has opted out of analytics (Do Not Track or Global Privacy Control). Its board views and clicks are not counted.</p>}
+    {preview && <section className={styles.panel} aria-label="Preview diagnostics">
+      <h3>Preview diagnostics</h3>
+      <p className={styles.note}>This dashboard only counts visits to this preview, not production. A synthetic test adds a board view and a detail open to the <code>preview-smoke</code> campaign. It does not record your browsing or open an application.</p>
+      <form action={recordPreviewTest}><button className="button" type="submit">Run synthetic preview test</button></form>
+      {test === "recorded" && <p role="status">Synthetic preview events recorded.</p>}
+      {test === "failed" && <p role="alert">The synthetic test did not finish. Check the preview logs before retrying.</p>}
+    </section>}
     {report ? <Report report={report} /> : <p role="status">Analytics are temporarily unavailable. No counts are shown.</p>}
   </section>;
 }
