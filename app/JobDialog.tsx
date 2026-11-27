@@ -81,7 +81,7 @@ export default function JobDialog({ job, view, onClose }: Props) {
               <a className="button" href={job.applyUrl} target="_blank" rel="noopener noreferrer"
                 onClick={() => recordAnalytics("apply_click", job.id)}
                 onAuxClick={(event) => { if (event.button === 1) recordAnalytics("apply_click", job.id); }}>
-                Open on {job.source}
+                {job.source === "job site" ? "Open job listing" : `Open on ${job.source}`}
               </a>
             </>
           )}

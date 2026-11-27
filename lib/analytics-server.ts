@@ -36,6 +36,12 @@ async function call(path: string, key: string, init: RequestInit = {}, token?: s
   return fetch(c.base + path, { ...init, headers, cache: "no-store", signal: AbortSignal.timeout(6000) });
 }
 
+export function serviceRequest(path: string, init?: RequestInit) {
+  const c = config();
+  if (!c) throw new Error("JobLele database is not configured");
+  return call(path, c.serviceKey, init);
+}
+
 export function isSameOrigin(request: Request) {
   const origin = request.headers.get("origin");
   if (!origin || request.headers.get("sec-fetch-site") === "cross-site") return false;

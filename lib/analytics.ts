@@ -49,7 +49,7 @@ export function classifyDevice(ua: string | null, mobileHint: string | null): De
   return "desktop";
 }
 
-export function parseEvent(value: unknown, knownJobIds: ReadonlySet<string>): EventInput | null {
+export function parseEvent(value: unknown, knownJobIds: Pick<ReadonlySet<string>, "has">): EventInput | null {
   if (!value || typeof value !== "object" || Array.isArray(value)) return null;
   const { id, session, type, job, source, campaign } = value as Record<string, unknown>;
   if (typeof id !== "string" || !UUID.test(id) || typeof session !== "string" || !UUID.test(session)) return null;

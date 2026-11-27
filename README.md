@@ -114,3 +114,16 @@ but does not silently delete data. If this becomes permanent, prune older
 rows according to an agreed retention policy and add platform rate limiting
 before enabling high-volume collection. No production setup, paid service,
 or background process is required by this preview.
+
+### Publish jobs from the preview admin
+
+Apply `supabase/migrations/202611270002_joblele_published_jobs.sql` in the
+same isolated JobLele Preview project. No additional environment variables are
+needed. In the hosted Preview, sign in at `/admin`, enter a listing using its
+original date and verified HTTPS application link, and select **Publish to
+preview**. Reload the board to see it without another deployment. The board
+combines the Preview database rows with the bundled GitHub feed, keeping the
+same seven-day recency behavior, filters and Apply flow. Direct database reads
+and writes are not granted to public users or signed-in Supabase users.
+The application uses the server key only and rechecks the owner for every
+write. The production board and existing Muse/GitHub sync are unchanged.

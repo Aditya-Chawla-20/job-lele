@@ -2,6 +2,8 @@ import jobs from "../../../../data/jobs.json";
 import { classifyDevice, parseEvent } from "../../../../lib/analytics";
 import { isAnalyticsConfigured, isSameOrigin, writeEvent } from "../../../../lib/analytics-server";
 
+import { isPublishedJob, PUBLISHED_JOB_ID } from "../../../../lib/published-jobs";
+
 const ids = new Set(jobs.map((job) => job.id));
 const LIMIT = 1024;
 
@@ -25,8 +27,8 @@ export async function POST(request: Request) {
   if (!request.headers.get("content-type")?.startsWith("application/json")) return new Response(null, { status: 415 });
   if (!isAnalyticsConfigured() || request.headers.get("dnt") === "1" || request.headers.get("sec-gpc") === "1") return new Response(null, { status: 204 });
   try {
-    const event = parseEvent(await smallJSON(request), ids);
-    if (!event) return new Response(null, { status: 400 });
+    const event = parseEvent(await smallJSON(request), { has: (id) => ids.has(id) || PUBLISHED_JOB_ID.test(id) });
+    if (!event || (event.job && !ids.has(event.job) && !await isPublishedJob(event.job))) return new Response(null, { status: 400 });
     await writeEvent({
       id: event.id, session_id: event.session, kind: event.type, job_id: event.job,
       source: event.source, campaign: event.campaign,

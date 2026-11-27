@@ -225,7 +225,7 @@ export default function JobBoard({ jobs }: { jobs: JobView[] }) {
                   <a
                     className="button button-primary"
                     href={job.applyUrl}
-                    aria-label={`Apply on ${job.source}`}
+                    aria-label={job.source === "job site" ? "Apply on the job site" : `Apply on ${job.source}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={() => {
