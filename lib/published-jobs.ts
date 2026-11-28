@@ -31,6 +31,7 @@ export async function readPublishedJobs(now: Date) {
     const params = new URLSearchParams({
       select: "id,posted_date,apply_url,listing",
       and: `(posted_date.gte.${firstVisibleDate(now)},posted_date.lte.${boardDate(now)})`,
+      published_at: "lte." + now.toISOString(),
       order: "posted_date.desc,published_at.desc",
     });
     const response = await serviceRequest(storePath + "?" + params);
@@ -42,9 +43,11 @@ export async function readPublishedJobs(now: Date) {
   }
 }
 
-export async function isPublishedJob(id: string) {
+export async function isPublishedJob(id: string, now = new Date()) {
   if (!jobsPublishingEnabled() || !PUBLISHED_JOB_ID.test(id)) return false;
-  const params = new URLSearchParams({ select: "id", id: "eq." + id, limit: "1" });
+  const params = new URLSearchParams({
+    select: "id", id: "eq." + id, published_at: "lte." + now.toISOString(), limit: "1",
+  });
   const response = await serviceRequest(storePath + "?" + params);
   if (!response.ok) throw new Error("Preview jobs unavailable");
   return (await response.json()).length === 1;
@@ -60,6 +63,16 @@ function cleanApplyUrl(value: string) {
     }
     return u;
   } catch { return null; }
+}
+
+export async function readScheduledJobs(now: Date) {
+  const params = new URLSearchParams({
+    select: "id,listing,published_at", published_at: "gt." + now.toISOString(),
+    order: "published_at.asc", limit: "50",
+  });
+  const response = await serviceRequest(storePath + "?" + params);
+  if (!response.ok) throw new Error("Scheduled preview jobs unavailable");
+  return await response.json() as { id: string; listing: Listing; published_at: string }[];
 }
 
 export async function publishJob(form: FormData, now = new Date()) {
@@ -85,6 +98,12 @@ export async function publishJob(form: FormData, now = new Date()) {
   }
   const date = new Date(postedDate + "T00:00:00Z");
   if (!Number.isFinite(date.getTime()) || boardDate(date) !== postedDate) return "invalid";
+  const publishAt = get("publishAt");
+  const release = publishAt ? new Date(publishAt + ":00+05:30") : now;
+  if (publishAt && (!/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}$/.test(publishAt)
+    || !Number.isFinite(release.getTime()) || release <= now
+    || new Date(release.getTime() + 330 * 60_000).toISOString().slice(0, 16) !== publishAt
+    || postedDate < firstVisibleDate(release))) return "invalid-time";
   if (bundledJobs.some((job) => cleanApplyUrl(job.applyUrl)?.href === url.href)) return "duplicate";
   const host = url.hostname;
   const source = /(^|\.)linkedin\.com$/.test(host) ? "LinkedIn"
@@ -98,11 +117,11 @@ export async function publishJob(form: FormData, now = new Date()) {
     const response = await serviceRequest(storePath, {
       method: "POST",
       headers: { "Content-Type": "application/json", Prefer: "return=minimal" },
-      body: JSON.stringify({ id, posted_date: postedDate, apply_url: url.href, listing }),
+      body: JSON.stringify({ id, posted_date: postedDate, apply_url: url.href, listing, published_at: release.toISOString() }),
     });
     if (response.status === 409) return "duplicate";
     if (!response.ok) throw new Error();
-    return "published";
+    return publishAt ? "scheduled" : "published";
   } catch {
     console.warn("JobLele preview job write did not confirm");
     return "failed";

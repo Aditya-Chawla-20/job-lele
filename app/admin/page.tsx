@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import jobs from "../../data/jobs.json";
-import { boardDate, jobsPublishingEnabled, readPublishedJobs } from "../../lib/published-jobs";
+import { boardDate, jobsPublishingEnabled, readPublishedJobs, readScheduledJobs } from "../../lib/published-jobs";
 import { CATEGORIES } from "../../lib/jobs";
 import type { AnalyticsReport, Breakdown } from "../../lib/analytics";
 import { isAnalyticsConfigured, readReport, signedInOwner, writeEvent } from "../../lib/analytics-server";
@@ -11,6 +11,7 @@ import styles from "./page.module.css";
 
 export const dynamic = "force-dynamic";
 export const metadata: Metadata = { title: "Private analytics | Job Lele", robots: { index: false, follow: false }, referrer: "same-origin" };
+const istTime = new Intl.DateTimeFormat("en-IN", { dateStyle: "medium", timeStyle: "short", timeZone: "Asia/Kolkata" });
 const testJob = "preview-test-job";
 const counts = new Intl.NumberFormat("en-IN");
 const percent = new Intl.NumberFormat("en-IN", { style: "percent", maximumFractionDigits: 1 });
@@ -62,9 +63,11 @@ function PublishForm({ status, today }: { status?: string; today: string }) {
     <h3 id="publish-title">Publish a job</h3>
     <p className={styles.note}>Preview only. Publishing adds the listing to the preview board. The live site and Muse feed are unchanged.</p>
     {status === "published" && <p role="status">Job published. <a href="/">View the preview board</a>.</p>}
+    {status === "scheduled" && <p role="status">Job scheduled for the preview board.</p>}
+    {status === "invalid-time" && <p role="alert">Choose a future IST time while the listing is still within the board’s 7-day window.</p>}
     {status === "duplicate" && <p role="alert">A job with this application link is already on the board.</p>}
     {status === "invalid" && <p role="alert">The job wasn’t saved. Check the required fields, posting date, and HTTPS application link.</p>}
-    {status === "failed" && <p role="alert">Publishing couldn’t be confirmed. Check the preview board before retrying.</p>}
+    {status === "failed" && <p role="alert">Saving couldn’t be confirmed. Check the preview board or scheduled jobs before retrying.</p>}
     <form className={styles.form} method="post" action="/api/admin/jobs">
       <div className={styles.grid}>
         <label>Job title<input name="title" maxLength={150} required /></label>
@@ -80,9 +83,12 @@ function PublishForm({ status, today }: { status?: string; today: string }) {
         </label>
       </div>
       <label>Application URL<input name="applyUrl" type="url" placeholder="https://" maxLength={2048} required /></label>
+      <label>Publish at (IST, optional)<input name="publishAt" type="datetime-local" aria-describedby="publish-at-help" />
+        <span id="publish-at-help" className={styles.note}>Enter India time. Leave blank to publish immediately.</span>
+      </label>
       <label>Salary (optional)<input name="salary" maxLength={100} /></label>
       <label>Description (optional)<textarea name="description" maxLength={5000} rows={4} /></label>
-      <button type="submit" className="button button-primary">Publish to preview</button>
+      <button type="submit" className="button button-primary">Publish or schedule</button>
     </form>
   </section>;
 }
@@ -128,7 +134,11 @@ export default async function Admin({ searchParams }: { searchParams: Promise<{ 
   const preview = process.env.VERCEL_ENV === "preview";
   const { test, job } = await searchParams;
   const now = new Date();
-  const published = await readPublishedJobs(now);
+  const publishing = jobsPublishingEnabled();
+  const [published, scheduled] = await Promise.all([
+    readPublishedJobs(now),
+    publishing ? readScheduledJobs(now).catch(() => null) : Promise.resolve([]),
+  ]);
   const names = new Map([...jobs, ...published].map((item) => [item.id, item.title + " · " + item.company]));
   names.set(testJob, "Preview test job (synthetic)");
   let report: AnalyticsReport | null = null;
@@ -138,8 +148,16 @@ export default async function Admin({ searchParams }: { searchParams: Promise<{ 
       <div><p className={styles.note}>OWNER ONLY · LAST 30 DAYS (IST)</p><h2 id="analytics-title">Job Lele analytics</h2></div>
       <form method="post" action="/api/admin/logout"><button className="button" type="submit">Sign out</button></form>
     </div>
-    {jobsPublishingEnabled() && <p><a href="/admin/queue">Open sourcing queue →</a></p>}
-    {jobsPublishingEnabled() && <PublishForm status={job} today={boardDate(now)} />}
+    {publishing && <p><a href="/admin/queue">Open sourcing queue →</a></p>}
+    {publishing && <PublishForm status={job} today={boardDate(now)} />}
+    {publishing && <section className={styles.panel} aria-labelledby="scheduled-title">
+      <h3 id="scheduled-title">Scheduled jobs (IST)</h3>
+      {!scheduled ? <p className={styles.note}>Scheduled jobs are temporarily unavailable.</p>
+        : scheduled.length === 0 ? <p className={styles.note}>No upcoming jobs.</p>
+        : <ul>{scheduled.map(({ id, listing, published_at }) => <li key={id}>
+          {listing.title} · {listing.company} · <time dateTime={published_at}>{istTime.format(new Date(published_at))} IST</time>
+        </li>)}</ul>}
+    </section>}
     {optedOut && <p role="status" className={styles.note}>This browser has opted out of analytics (Do Not Track or Global Privacy Control). Its board views and clicks are not counted.</p>}
     {preview && <section className={styles.panel} aria-label="Preview diagnostics">
       <h3>Preview diagnostics</h3>
