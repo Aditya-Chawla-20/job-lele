@@ -8,7 +8,7 @@ export type Job = {
   postedDate: string; // ISO date, e.g. "2026-11-12"
   category: string;
   applyUrl: string;
-  source: "Naukri" | "LinkedIn";
+  source: "Naukri" | "LinkedIn" | "job site";
   sourceJobId: string;
   verifiedDate: string; // ISO date the listing was last verified live
   description?: string | null;

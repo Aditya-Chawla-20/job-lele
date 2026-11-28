@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { recordAnalytics } from "../lib/analytics-client";
 import { jobKeywords, type JobView } from "../lib/jobs";
 
 type Props = {
@@ -77,8 +78,10 @@ export default function JobDialog({ job, view, onClose }: Props) {
               ) : (
                 <p className="dialog-note">Open the original job listing for the full description.</p>
               )}
-              <a className="button" href={job.applyUrl} target="_blank" rel="noopener noreferrer">
-                Open on {job.source}
+              <a className="button" href={job.applyUrl} target="_blank" rel="noopener noreferrer"
+                onClick={() => recordAnalytics("apply_click", job.id)}
+                onAuxClick={(event) => { if (event.button === 1) recordAnalytics("apply_click", job.id); }}>
+                {job.source === "job site" ? "Open job listing" : `Open on ${job.source}`}
               </a>
             </>
           )}

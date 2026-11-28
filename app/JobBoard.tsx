@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import JobDialog from "./JobDialog";
+import { recordAnalytics } from "../lib/analytics-client";
 import { track } from "@vercel/analytics";
 import {
   CATEGORIES,
@@ -27,6 +28,8 @@ export default function JobBoard({ jobs }: { jobs: JobView[] }) {
     view: "details" | "keywords";
     trigger: HTMLButtonElement;
   } | null>(null);
+
+  useEffect(() => { recordAnalytics("board_view"); }, []);
 
   const filtered = useMemo(() => {
     const text = query.trim().toLowerCase();
@@ -204,7 +207,10 @@ export default function JobBoard({ jobs }: { jobs: JobView[] }) {
                     type="button"
                     className="button"
                     aria-haspopup="dialog"
-                    onClick={(event) => setSelection({ job, view: "details", trigger: event.currentTarget })}
+                    onClick={(event) => {
+                      recordAnalytics("detail_view", job.id);
+                      setSelection({ job, view: "details", trigger: event.currentTarget });
+                    }}
                   >
                     View Details
                   </button>
@@ -219,10 +225,14 @@ export default function JobBoard({ jobs }: { jobs: JobView[] }) {
                   <a
                     className="button button-primary"
                     href={job.applyUrl}
-                    aria-label={`Apply on ${job.source}`}
+                    aria-label={job.source === "job site" ? "Apply on the job site" : `Apply on ${job.source}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    onClick={() => track("job_apply_click", { job: job.title, company: job.company })}
+                    onClick={() => {
+                      recordAnalytics("apply_click", job.id);
+                      track("job_apply_click", { job: job.title, company: job.company });
+                    }}
+                    onAuxClick={(event) => { if (event.button === 1) recordAnalytics("apply_click", job.id); }}
                   >
                     Apply
                   </a>
