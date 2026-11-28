@@ -138,6 +138,7 @@ export default async function Admin({ searchParams }: { searchParams: Promise<{ 
       <div><p className={styles.note}>OWNER ONLY · LAST 30 DAYS (IST)</p><h2 id="analytics-title">Job Lele analytics</h2></div>
       <form method="post" action="/api/admin/logout"><button className="button" type="submit">Sign out</button></form>
     </div>
+    {jobsPublishingEnabled() && <p><a href="/admin/queue">Open sourcing queue →</a></p>}
     {jobsPublishingEnabled() && <PublishForm status={job} today={boardDate(now)} />}
     {optedOut && <p role="status" className={styles.note}>This browser has opted out of analytics (Do Not Track or Global Privacy Control). Its board views and clicks are not counted.</p>}
     {preview && <section className={styles.panel} aria-label="Preview diagnostics">
